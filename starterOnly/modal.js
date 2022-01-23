@@ -1,5 +1,6 @@
 function editNav() {
-  var x = document.getElementById("myTopnav");
+  let x = document.getElementById("myTopnav");
+  // on teste à la fois si le type et le même et si le contenu est le même
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
@@ -19,5 +20,6 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";
 }
+
 
 
