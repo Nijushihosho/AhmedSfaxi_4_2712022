@@ -1,4 +1,5 @@
 {
-    "svn.ignoreMissingSvnWarning": true,
-    "open-in-browser.default": "chrome"
+	"svn.ignoreMissingSvnWarning": true,
+	"open-in-browser.default": "chrome",
+	"cSpell.enableFiletypes": ["!asciidoc", "!c", "!cpp", "!go"]
 }
