@@ -32,3 +32,12 @@ function closeModal () {
   modalbg.style.display = "none";
 }
 
+// Formulaire valide lable vers html for et 
+formData.addEventListener('input', function(e) {
+  var value = e.target.value;
+  if (value.startsWith('Hello ')) {
+      isValid = true;
+  } else {
+      isValid = false;
+  }
+});
