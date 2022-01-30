@@ -17,6 +17,7 @@ const btnClose = document.querySelector("span.close");
 
 // launch modal event fonction fléchée
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
 btnClose.addEventListener("click", closeModal);
 btnClose.addEventListener("click", (e) => {
   console.log(e);
@@ -33,11 +34,8 @@ function closeModal () {
 }
 
 // Formulaire valide lable vers html for et 
-formData.addEventListener('input', function(e) {
-  var value = e.target.value;
-  if (value.startsWith('Hello ')) {
-      isValid = true;
-  } else {
-      isValid = false;
-  }
-});
+//function isValid(value) {
+  //return /^e[0-9]{2,}.test(value) 
+  //}
+  
+  
