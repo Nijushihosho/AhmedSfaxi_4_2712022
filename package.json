@@ -1,0 +1,36 @@
+{
+  "name": "ahmedsfaxi_4_2712022",
+  "version": "1.0.0",
+  "description": "Gameson",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "webpack-cli": "^4.9.2",
+    "webpack": "^5.67.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "babel-polyfill": "^6.26.0",
+    "webpack-dev-server": "^4.7.3",
+    "webpack-serve": "^4.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nijushihosho/AhmedSfaxi_4_2712022.git"
+  },
+  "keywords": [
+    "P4"
+  ],
+  "author": "Ahmed Sfaxi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nijushihosho/AhmedSfaxi_4_2712022/issues"
+  },
+  "homepage": "https://github.com/Nijushihosho/AhmedSfaxi_4_2712022#readme"
+}
