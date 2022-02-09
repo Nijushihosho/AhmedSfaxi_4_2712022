@@ -13,28 +13,26 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const btnClose = document.querySelector("span.close");
-const inputsType = document.querySelectorAll(
-  'input[type="text"], input[type="email"], input[type="date"], input[type="number"], input[type="radio"], input[type="checkbox"]'
-);
+
 // Pour chaque champ, définition des contraintes
 
 function check(){
-  //pour chaque champ défini les contraintes
+  //pour chaque champ vérifie les contraintes
 const constraints = {
   last : ['[a-z]{2,}$' , "Le nom doit comporter un minimum de 2 caractères"],
   first :['[a-z]{2,}$' , "Le prénom doit comporter un minimum de 2 caractères"],
+}
 };
 
 // Lit l'id des champs
 
 const firstName = document.getElementById("first").value;
-const lastName = document.getElementById("last").value;
-const mail = document.getElementById("email").type;
-const birthdate = document.getElementById("birthDate").type;
+console.log("j'affiche le ",firstName);
+//const lastName = document.getElementById("last").value;
+//const mail = document.getElementById("email").type;
+//const birthdate = document.getElementById("birthDate").type;
 
 
-
-// Const de vérification
 
 // Build the constraint checker
 //const constraint = new RegExp(constraints[firstName][0]("");
@@ -45,36 +43,31 @@ const birthdate = document.getElementById("birthDate").type;
 //if (constraint.test(firstName.value)) {
   // The first the constraint, we use the ConstraintAPI to tell it
  // firstName.setCustomValidity("");
-}
+//}
 //else {
   // The firstname doesn't follow the constraint, we use the ConstraintAPI to
-  // give a message about the format required for this country
-  //firstName.setCustomValidity(constraints[firstName][1]);
+  // give a message about the format required for this firstName
+//firstName.setCustomValidity(constraints[first][1]);
 //}
 //}
 
-//onsubmit.onload = function () {
- // document.getElementById("first").onsubmit = check;
-//  document.getElementById("last").onsubmit = check;
- // document.getElementById("email").onsubmit = check;
-  //document.getElementById("birthdate").onsubmit = check;
-//}
+//Then we link it to the oninput event for the <input>:
+
+window.onload = function () {
+document.getElementById("first").oninput = check;
+//document.getElementById("last").oninput = check;
+ // document.getElementById("email").oninput = check;
+//document.getElementById("birthdate").oninput = check;
+}
 
 
 
-/*const firstNameChecker = (value) => {
-  console.log(value);
-};
-const birthdayChecker = () => {};
-const emailChecker = () => {};
-const confirmChecker = () => {};
-*/
 
 // launch modal event fonction fléchée
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 btnClose.addEventListener("click", closeModal);
 btnClose.addEventListener("click", (e) => {
-  console.log(e);
+console.log(e);
 });
 
 // launch modal form
@@ -87,19 +80,8 @@ function closeModal () {
   modalbg.style.display = "none";
 }
 
-// lier les labels aux entrées dans le HTML validé par Submit
 
 
-// Conditionner le submit à la validation des critères
 
-/*document
-  .getElementById("last")
-  .addEventListener("onsubmit", function(e) {
-  if (/^first-/.test(e.target.value)) {
-    getCodeValidation().innerTextHtml = "Nom valide";
-    disableSubmit(false);
-  } else {
-    ().innerTextHtml = "Nom invalide";
-    disableSubmit(true);
-  }
-});*/
+
+
