@@ -38,20 +38,44 @@ function closeModal () {
 function check(){
   //pour chaque champ du formulaire, vérifie les contraintes
 let constraints = {
-last : ['/[a-z]{2,}$\.test(value);' , "Veuillez entrer 2 caractères ou plus pour le champ du nom"],
-first : ['/[a-z]{2,}$\.test(value);' , "Veuillez entrer 2 caractères ou plus pour le champ du prénom"],
-checkbox : ['', "Vous devez choisir une option"],
-checkbox1 : ['checked', "Vous devez vérifiez que vous acceptez les termes et conditions"],
-birthdate : ['', "Vous devez entrer votre date de naissance"],
-}
+firstName : ["/^[a-z]{2,}$/" , "Veuillez entrer 2 caractères ou plus pour le champ du prénom"],
+lastName : ["/^[a-z]{2,}$/" , "Veuillez entrer 2 caractères ou plus pour le champ du nom"],
+email : ["/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"],
+checkbox : [("location*").checked, "Vous devez choisir une option"],
+//checkbox2 : ["if (!form.location.ckecked) {alert("Vous devez vérifiez que vous acceptez les termes et conditions")],
+//birthdate : ["", "Vous devez entrer votre date de naissance"],
 };
+
+//function checkForm(checkbox1)
+/*{
+  ...
+  if(!form.location.checked) {
+    alert("Vous devez vérifiez que vous acceptez les termes et conditions");
+    form.location.focus();
+    return false;
+  }
+  return true;
+}*/
+
+//Validations checkbox locations
+/*function Checkbox1 (location) {
+  let x = document.forms["checkbox"]["location"].value;
+  if (x == "") {
+    alert("Vous devez choisir une option");
+    return false;
+  }
+}*/
+
 
 // Lit l'id des champs et y récupère la <value>
 
 const firstName = document.getElementById("first").value;
 console.log("j'affiche le ",firstName);
 const lastName = document.getElementById("last").value;
-const mail = document.getElementById("email");
+const email = document.getElementById("email").value;
+console.log(email);
+const checkBox = document.getElementById("location*");
+const checkbox2 = document.getElementById("checkbox2");
 const birthdate = document.getElementById("birthdate");
 
 
@@ -59,31 +83,34 @@ const birthdate = document.getElementById("birthdate");
 let constraint = new RegExp(constraints[firstName][0],"");
 console.log(constraint);
 
-
 // Check it!
-function validate(inputID) {
-  const input = document.getElementById(inputID);
-  const validityState = input.validity;
-if (constraints.test(firstName.value)) {
+if (constraint.test(firstName.value)) {
   // The first the constraint, we use the Constraint checkfunction API to tell it
 firstName.setCustomValidity("Merci ! Votre réservation a été reçue.");
 }
 else {
  //The firstname doesn't follow the constraint, we use the checkfunction API to
   // give a message about the format required for this firstName
-firstName.setCustomValidity(constraints[firstName][1],"Veuillez entrer 2 caractères ou plus pour le champ du prénom");
+firstName.setCustomValidity(constraints[firstName][0],"Veuillez entrer 2 caractères ou plus pour le champ du prénom");
 }
 
-input.reportValidity();
-}
 //Then we link it to the oninput event for the <input>:
 
 window.onload = function () {
 document.getElementById("first").oninput = check;
 document.getElementById("last").oninput = check;
 document.getElementById("email").oninput = check;
+document.getElementById("location*").oninput = check;
+document.getElementById("checkbox2").oninput = check;
 document.getElementById("birthdate").oninput = check;
 }
+
+function Validate()
+{
+    
+} 
+}
+
 
 
 
