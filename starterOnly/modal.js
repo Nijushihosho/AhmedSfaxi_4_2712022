@@ -41,12 +41,10 @@ let constraints = {
 firstName : ["/^[a-z]{2,}$/" , "Veuillez entrer 2 caractères ou plus pour le champ du prénom"],
 lastName : ["/^[a-z]{2,}$/" , "Veuillez entrer 2 caractères ou plus pour le champ du nom"],
 email : ["/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"],
-checkbox : [("location*").checked, "Vous devez choisir une option"],
-//checkbox2 : ["if (!form.location.ckecked) {alert("Vous devez vérifiez que vous acceptez les termes et conditions")],
-//birthdate : ["", "Vous devez entrer votre date de naissance"],
+birthdate : ["/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/", "Vous devez entrer votre date de naissance"],
 };
 
-//function checkForm(checkbox1)
+//function checkForm(checkbox)
 /*{
   ...
   if(!form.location.checked) {
@@ -66,6 +64,15 @@ checkbox : [("location*").checked, "Vous devez choisir une option"],
   }
 }*/
 
+/*var checkbox = document.getElementById("checkbox");
+if (checkbox.checked)
+{
+    alert("Checkbox is CHECKED.");
+}
+else
+{
+    alert("Vous devez choisir une option.");
+}*/
 
 // Lit l'id des champs et y récupère la <value>
 
@@ -74,14 +81,12 @@ console.log("j'affiche le ",firstName);
 const lastName = document.getElementById("last").value;
 const email = document.getElementById("email").value;
 console.log(email);
-const checkBox = document.getElementById("location*");
-const checkbox2 = document.getElementById("checkbox2");
 const birthdate = document.getElementById("birthdate");
 
 
 // Build the constraint checker
-let constraint = new RegExp(constraints[firstName][0],"");
-console.log(constraint);
+let constraint = new RegExp (constraints[firstName], lastName,email,birthdate]));
+console.log(name + ': ' + value);
 
 // Check it!
 if (constraint.test(firstName.value)) {
@@ -100,14 +105,20 @@ window.onload = function () {
 document.getElementById("first").oninput = check;
 document.getElementById("last").oninput = check;
 document.getElementById("email").oninput = check;
-document.getElementById("location*").oninput = check;
-document.getElementById("checkbox2").oninput = check;
 document.getElementById("birthdate").oninput = check;
 }
 
-function Validate()
+//validation si remplit contraintes de check sinon désactive le submit 
+function validate()
 {
-    
+  const form = e.target;
+
+  if (!form.check()) {
+
+    // form is invalid - cancel submit
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
 } 
 }
 
