@@ -1,3 +1,5 @@
+const { resourceUsage } = require("process");
+
 function editNav() {
   let x = document.getElementById("myTopnav");
   // on teste à la fois si le type et le même et si le contenu est le même
@@ -37,7 +39,16 @@ function closeModal () {
 
 function check(){
   //pour chaque champ du formulaire, vérifie les contraintes
-let constraints = {
+
+let constraints = true {
+  if (firstName == "/^[a-z]{2,}$/") {
+    styleBackbackround.red
+    return ("Veuillez entrer 2 caractères ou plus pour le champ du nom")
+    constraints = false
+  } else {
+    reset couleur 
+    reset message d'erreur
+  }
 firstName : ["/^[a-z]{2,}$/" , "Veuillez entrer 2 caractères ou plus pour le champ du prénom"],
 lastName : ["/^[a-z]{2,}$/" , "Veuillez entrer 2 caractères ou plus pour le champ du nom"],
 email : ["/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"],
