@@ -49,39 +49,46 @@ const checkBox = document.getElementById("checkbox");
 
 function check() {
   //pour chaque champ du formulaire, vérifie les contraintes
-let validateAll = true; 
+let validate = true; 
    if (firstName == "") {
     alert ("Veuillez entrer 2 caractères ou plus pour le champ du nom");
     firstName.style.borderColor = "#FF0000";
+    validate = false
     return false;
   } else {
-    (document.getElementById(firstName).style.borderColor=#FFF); 
+    firstName.style.borderColor = "#FF0000".reset();
+    alert("Veuillez entrer 2 caractères ou plus").reset();
   }
   if (lastName == "") {
     lastName.style.borderColor = "#FF0000";
     alert ("Veuillez entrer 2 caractères ou plus pour le champ du prénom");
+    validate = false
     return false;
   } else {
-    document.getElementById(lastName)="Reset"); 
+    lastName.style.borderColor = "#FF0000".reset();
+    alert("Veuillez entrer 2 caractères ou plus").reset();
   }
   if ("mail".value == "") {
     mail.style.borderColor = "#FF0000";
     alert ("Veuillez entrer une adresse mail conforme");
-    validateAll = false;
+    validate = false;
+    return false;
   } else {
-    ("last".value="Reset"); 
+    ("mail").value=reset; 
   }
   if ("bDate".value == "") {
     bDate.style.borderColor = "#FF0000";
     alert ("Veuillez entrer une date au format date de naissance");
-    validateAll = false;
+    validate = false;
+    return false;
   } else {
     ("bDate".value="Reset"); 
   }
   if(!radio) {
 radio.selectedIndex = "0";
     alert("Vous devez vérifiez que vous acceptez les termes et conditions");
-    validateAll = false;
+    validate = false;
+    return false;
   }
   else {
     ("radio".type="Reset");
