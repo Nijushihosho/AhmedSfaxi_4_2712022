@@ -34,107 +34,79 @@ function closeModal () {
   modalbg.style.display = "none";
 }
 
+// Lit l'id des champs et y récupère la <value>
+
+const firstName = document.getElementById("first").value;
+const lastName = document.getElementById("last").value;
+const mail = document.getElementById("email");
+const bDate = document.getElementById("birthdate");
+const checkBox1 = document.getElementsByTagName(location).value;
+const checkBox = document.getElementById("checkbox");
 
 // Pour chaque champ du formulaire, définition des contraintes de API 
 
 function check(){
   //pour chaque champ du formulaire, vérifie les contraintes
-
-let constraints = true {
-  if (firstName == "/^[a-z]{2,}$/") {
-    styleBackbackround.red
-    return ("Veuillez entrer 2 caractères ou plus pour le champ du nom")
-    constraints = false
+let validateAll = true, {
+  if (document.getElementById("first").value == "") {
+    firstName.style.borderColor = "#FF0000";
+    alert ("Veuillez entrer 2 caractères ou plus pour le champ du nom");
+    validateAll = false;
   } else {
-    reset couleur 
-    reset message d'erreur
+    document.getElementById("first").value="Reset"; 
   }
-firstName : ["/^[a-z]{2,}$/" , "Veuillez entrer 2 caractères ou plus pour le champ du prénom"],
-lastName : ["/^[a-z]{2,}$/" , "Veuillez entrer 2 caractères ou plus pour le champ du nom"],
-email : ["/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"],
-birthdate : ["/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/", "Vous devez entrer votre date de naissance"],
-};
-
-//function checkForm(checkbox)
-/*{
-  ...
-  if(!form.location.checked) {
+  if (document.getElementById("last").value == "") {
+    lastName.style.borderColor = "#FF0000";
+    alert ("Veuillez entrer 2 caractères ou plus pour le champ du prénom");
+    validateAll = false;
+  } else {
+    document.getElementById("last").value="Reset"; 
+  }
+  if (document.getElementById("bDate").value == "") {
+    bDate.style.borderColor = "#FF0000";
+    alert ("Veuillez entrer une date au format date de naissance");
+    validateAll = false;
+  } else {
+    document.getElementById("bDate").value="Reset"; 
+  }
+  if(!checkBox) {
+document.getElementsByTagName("location").selectedIndex =0;
     alert("Vous devez vérifiez que vous acceptez les termes et conditions");
-    form.location.focus();
-    return false;
+    validateAll = false;
   }
-  return true;
-}*/
-
-//Validations checkbox locations
-/*function Checkbox1 (location) {
-  let x = document.forms["checkbox"]["location"].value;
-  if (x == "") {
-    alert("Vous devez choisir une option");
-    return false;
-  }
-}*/
-
-/*var checkbox = document.getElementById("checkbox");
-if (checkbox.checked)
-{
-    alert("Checkbox is CHECKED.");
-}
-else
-{
-    alert("Vous devez choisir une option.");
-}*/
-
-// Lit l'id des champs et y récupère la <value>
-
-const firstName = document.getElementById("first").value;
-console.log("j'affiche le ",firstName);
-const lastName = document.getElementById("last").value;
-const email = document.getElementById("email").value;
-console.log(email);
-const birthdate = document.getElementById("birthdate");
-
-
-// Build the constraint checker
-let constraint = new RegExp (constraints[firstName], lastName,email,birthdate]));
-console.log(name + ': ' + value);
-
-// Check it!
-if (constraint.test(firstName.value)) {
-  // The first the constraint, we use the Constraint checkfunction API to tell it
-firstName.setCustomValidity("Merci ! Votre réservation a été reçue.");
-}
-else {
- //The firstname doesn't follow the constraint, we use the checkfunction API to
-  // give a message about the format required for this firstName
-firstName.setCustomValidity(constraints[firstName][0],"Veuillez entrer 2 caractères ou plus pour le champ du prénom");
+  else {
+    document.getElementById("checkBox").value="Reset";
 }
 
+}
+
+
+/*firstName : ["/^[a-z]{2,}$/" , "Veuillez entrer 2 caractères ou plus pour le champ du prénom"],
+lastName : ["/^[a-z]{2,}$/" , "Veuillez entrer 2 caractères ou plus pour le champ du nom"],
+mail : ["/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"],
+bDate : ["/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/", "Vous devez entrer votre date de naissance"],
+};*/
+
+
+  
 //Then we link it to the oninput event for the <input>:
 
-window.onload = function () {
-document.getElementById("first").oninput = check;
+validateAll = function (check) {
+document.getElementById("first").onchange = check;
 document.getElementById("last").oninput = check;
-document.getElementById("email").oninput = check;
-document.getElementById("birthdate").oninput = check;
+document.getElementById("mail").oninput = check;
+document.getElementById("bDate").oninput = check;
 }
 
-//validation si remplit contraintes de check sinon désactive le submit 
+/*validation si remplit contraintes de check sinon désactive le submit 
 function validate()
 {
-  const form = e.target;
+  const form = target;
 
   if (!form.check()) {
 
     // form is invalid - cancel submit
-    e.preventDefault();
-    e.stopImmediatePropagation();
-
-} 
-}
-
-
-
-
-
-
+    preventDefault();
+    stopImmediatePropagation();
+  }
+};*/
