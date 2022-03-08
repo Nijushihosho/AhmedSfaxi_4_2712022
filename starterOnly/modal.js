@@ -1,5 +1,3 @@
-const { validate } = require("json-schema");
-const { resourceUsage } = require("process");
 
 function editNav() {
   let x = document.getElementById("myTopnav");
@@ -38,6 +36,7 @@ function closeModal () {
 // Lit l'id des champs et y récupère la <value>
 
 const firstName = document.getElementById("first").value;
+console.log(firstName);
 const lastName = document.getElementById("last").value;
 const mail = document.getElementById("email").value;
 const bDate = document.getElementById("birthdate").value;
@@ -49,51 +48,55 @@ const checkBox = document.getElementById("checkbox");
 
 function check() {
   //pour chaque champ du formulaire, vérifie les contraintes
-let validate = true; 
-   if (firstName == "") {
-    alert ("Veuillez entrer 2 caractères ou plus pour le champ du nom");
+let validateAll = true; 
+   if (firstName.match(/^[a-z]{2,}$/))  {
+   console.log("match!");
+    document.getElementById("first")=("Veuillez entrer 2 caractères ou plus pour le champ du nom");
     firstName.style.borderColor = "#FF0000";
-    validate = false
-    return false;
+    validateAll = false;
   } else {
     firstName.style.borderColor = "#FF0000".reset();
-    alert("Veuillez entrer 2 caractères ou plus").reset();
+    document.getElementById("first").innerHTML=("Veuillez entrer 2 caractères ou plus").reset();
   }
-  if (lastName == "") {
+  if (lastName.match(/^[a-z]{2,}$/))  {
+    console.log("match!");
+    document.getElementById("last").innerHTML=("Veuillez entrer 2 caractères ou plus pour le champ du prénom")
     lastName.style.borderColor = "#FF0000";
-    alert ("Veuillez entrer 2 caractères ou plus pour le champ du prénom");
-    validate = false
-    return false;
+  validateAll = false;
   } else {
     lastName.style.borderColor = "#FF0000".reset();
-    alert("Veuillez entrer 2 caractères ou plus").reset();
+    document.getElementById("last").innerHTML=("Veuillez entrer 2 caractères ou plus").reset();
   }
-  if ("mail".value == "") {
+  if (mail.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) {
     mail.style.borderColor = "#FF0000";
-    alert ("Veuillez entrer une adresse mail conforme");
-    validate = false;
-    return false;
+    document.getElementById("email").innerHTML=("Veuillez entrer une adresse mail conforme");
+    validateAll = false;
   } else {
-    ("mail").value=reset; 
+    lastName.style.borderColor = "#FF0000".reset();
+    document.getElementById("email").innerHTML=("Veuillez entrer une adresse mail conforme").reset();
   }
-  if ("bDate".value == "") {
+    if (bDate.match(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/) {console.log("match");
     bDate.style.borderColor = "#FF0000";
-    alert ("Veuillez entrer une date au format date de naissance");
-    validate = false;
-    return false;
+    document.getElementById("birthdate").innerHTML=("Veuillez entrer votre date de naissance");
+    validateAll = false;
   } else {
-    ("bDate".value="Reset"); 
+    lastName.style.borderColor = "#FF0000".reset();
+    document.getElementById("birthdate").innerHTML=("Veuillez entrer votre date de naissance").reset();
   }
-  if(!radio) {
-radio.selectedIndex = "0";
-    alert("Vous devez vérifiez que vous acceptez les termes et conditions");
-    validate = false;
-    return false;
+  /*for(i=0 < i=)*/
+  if(radio) {
+    document.getElementById("INPUT").checked=false;
+    document.getElementById("radio").innerHTML=("Vous devez vérifier que vous acceptez les termes et conditions");
+    validateAll = false;
   }
   else {
-    ("radio".type="Reset");
+    lastName.style.borderColor = "#FF0000".reset();
+    document.getElementById("radio").innerHTML=("Vous devez vérifier que vous acceptez les termes et conditions").reset();
+  }
 }
-}
+
+check();
+
 
 
 
