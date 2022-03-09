@@ -42,61 +42,50 @@ const mail = document.getElementById("email").value;
 const bDate = document.getElementById("birthdate").value;
 const radio = document.getElementById("location1").value;
 const checkBox = document.getElementById("checkbox");
-
-// Pour chaque champ du formulaire, définition des contraintes de API 
+const myForm = document.getElementsByClassName("formData").value;
+const formData = new FormData("modal.css");
+console.log();// Pour chaque champ du formulaire, définition des contraintes de API 
 
 function check() {
   //pour chaque champ du formulaire, vérifie les contraintes
 let validateAll = true; 
    if (firstName.match(/^[a-z]{2,}$/))  {
     console.log("match");
-    FormData("Veuillez entrer 2 caractères ou plus pour le champ du nom");
-    firstName.style.borderColor = "#FF0000";
+    formData.append("first","");
+    formData.append("modal.css")
+    ("Veuillez entrer 2 caractères ou plus pour le champ du nom");
     return false;
   } else {
-    firstName.style.borderColor = "#FF0000".reset();
-    data-error.("Veuillez entrer 2 caractères ou plus").reset();
+    formData.reset();
   }
-  if (lastName.match(/^[a-z]{2,}$/))  { 
+ /*
+ if (lastName.match(/^[a-z]{2,}$/))  { 
     console.log("match");
-    alert("Veuillez entrer 2 caractères ou plus pour le champ du prénom")
-    lastName.style.borderColor = "#FF0000";
+    ("Veuillez entrer 2 caractères ou plus pour le champ du prénom")
+    
   return false;
   } else {
-    lastName.style.borderColor = "#FF0000".reset();
-    alert("Veuillez entrer 2 caractères ou plus").reset();
+  
+    ("Veuillez entrer 2 caractères ou plus").reset();
   }
   if (mail.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
-    alert("Veuillez entrer une adresse mail conforme");
+    ("Veuillez entrer une adresse mail conforme");
     return false;
   } else {
-    lastName.style.borderColor = "#FF0000".reset();
-    alert("Veuillez entrer une adresse mail conforme").reset();
+    ("Veuillez entrer une adresse mail conforme").reset();
   }
     if (bDate.match(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/)) {
-    alert("Veuillez entrer votre date de naissance");
+    ("Veuillez entrer votre date de naissance");
     return false;
   } else {
-    lastName.style.borderColor = "#FF0000".reset();
-   alert("Veuillez entrer votre date de naissance").reset();
+   ("Veuillez entrer votre date de naissance").reset();
   }
-  /*for(i=0 < i=)*/
-  if (radio.checked==false) {
-    alert("Vous devez vérifier que vous acceptez les termes et conditions");
+  for(i=0 < i=)
+  if (document.getElementById("location").checked==false) && (document.getElementById("location2").checked==false) && (document.getElementById("location3").checked==false) && (document.getElementById("location4").checked==false) && (document.getElementById("location5").checked==false) && (document.getElementById("location6").checked==false)
+&& (document.getElementById("location1").checked==false);
+ ("Vous devez vérifier que vous acceptez les termes et conditions");
     return false;
   } else {
-    lastName.style.borderColor = "#FF0000".reset();
-    alert("Vous devez vérifier que vous acceptez les termes et conditions").reset();
+    ("Vous devez vérifier que vous acceptez les termes et conditions").reset();
   }
-
-
-check();
-
-}
-
-
-/*firstName : ["/^[a-z]{2,}$/" , "Veuillez entrer 2 caractères ou plus pour le champ du prénom"],
-lastName : ["/^[a-z]{2,}$/" , "Veuillez entrer 2 caractères ou plus pour le champ du nom"],
-mail : ["/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"],
-bDate : ["/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/", "Vous devez entrer votre date de naissance"],
-;*/
+*/
