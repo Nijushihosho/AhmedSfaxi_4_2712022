@@ -43,22 +43,22 @@ const bDate = document.getElementById("birthdate").value;
 const radio = document.getElementById("location1").value;
 const checkBox = document.getElementById("checkbox");
 const myForm = document.getElementsByClassName("formData").value;
-const formData = new FormData("modal.css");
 console.log();// Pour chaque champ du formulaire, définition des contraintes de API 
 
 function check() {
   //pour chaque champ du formulaire, vérifie les contraintes
 let validateAll = true; 
    if (firstName.match(/^[a-z]{2,}$/))  {
-    console.log("match");
-    formData.append("first","");
-    formData.append("modal.css")
-    ("Veuillez entrer 2 caractères ou plus pour le champ du nom");
-    return false;
+  
+    
+    
   } else {
-    formData.reset();
+document.getElementById("first").parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
+document.getElementById("first").parentElement.dataset.errorVisible = "true";    
+    validateAll = false;
   }
- /*
+ 
+  /*
  if (lastName.match(/^[a-z]{2,}$/))  { 
     console.log("match");
     ("Veuillez entrer 2 caractères ou plus pour le champ du prénom")
