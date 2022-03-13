@@ -40,8 +40,13 @@ console.log(firstName);
 const lastName = document.getElementById("last").value;
 const mail = document.getElementById("email").value;
 const bDate = document.getElementById("birthdate").value;
-const radio = document.getElementById("location1").value;
+const radio = document.getElementsByClassName("location").value;
 const checkBox = document.getElementById("checkbox");
+
+
+
+let error= document.querySelector("data-error");
+console.log("🚀 ~ file: modal.js ~ line 49 ~ error", error)
 
 
 // Pour chaque champ du formulaire, définition des contraintes de API 
@@ -50,12 +55,17 @@ function check() {
   //pour chaque champ du formulaire, vérifie les contraintes
 let validateAll = true; 
    if (firstName.match(/^[a-z]{2,}$/))  {
-
   } else {
 document.getElementById("first").parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
-document.getElementById("first").parentElement.dataset.errorVisible = "true";    
+// // console.log("🚀 ~ file: modal.js ~ line 62 ~ check ~ first", first)
+
+document.getElementById("first").parentElement.dataset.errorVisible = null; 
+// console.log("🚀 ~ file: modal.js ~ line 64 ~ check ~ first", first)
+
+
 validateAll = false;
-  }}
+
+  }};
  
 
  /* if (lastName.match(/^[a-z]{2,}$/))  { 
@@ -80,7 +90,7 @@ validateAll = false;
    ("Veuillez entrer votre date de naissance").reset();
   }
   for(i=0 < i=)
-  if (document.getElementById("location").checked==false) && (document.getElementById("location2").checked==false) && (document.getElementById("location3").checked==false) && (document.getElementById("location4").checked==false) && (document.getElementById("location5").checked==false) && (document.getElementById("location6").checked==false)
+  if (document.getElementByClass("location").checked==false) && (document.getElementById("location2").checked==false) && (document.getElementById("location3").checked==false) && (document.getElementById("location4").checked==false) && (document.getElementById("location5").checked==false) && (document.getElementById("location6").checked==false)
 && (document.getElementById("location1").checked==false);
  ("Vous devez vérifier que vous acceptez les termes et conditions");
     return false;

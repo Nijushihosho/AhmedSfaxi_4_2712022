@@ -2,5 +2,5 @@
 	"svn.ignoreMissingSvnWarning": true,
 	"open-in-browser.default": "chrome",
 	"cSpell.enableFiletypes": ["!asciidoc", "!c", "!cpp", "!go"],
-	"debug.javascript.autoAttachFilter": "always"
+	"debug.javascript.autoAttachFilter": "smart"
 }
