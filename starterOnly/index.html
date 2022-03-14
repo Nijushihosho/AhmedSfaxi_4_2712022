@@ -60,20 +60,20 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              onsubmit="validate();"
             >
               <div
-                class="formData">
+                class="formData" data-error-visible="true">
                 <label>Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
-                  /><div data-error="null"></div><div data-error-visible="true"></div><br>
-                  
+                  />
+                  <div data-error="" data-error-visible="true">
+                  <br>
               </div>
-              
               <div
                 class="formData">
                 <label>Nom</label><br>
@@ -82,7 +82,9 @@
                   type="text"
                   id="last"
                   name="last" 
-                /><br>
+                />
+                <div data-error="true" data-error-visible="true">
+                <br>
               </div>
               <div
                 class="formData">

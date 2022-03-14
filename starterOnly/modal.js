@@ -1,4 +1,5 @@
 
+
 function editNav() {
   let x = document.getElementById("myTopnav");
   // on teste à la fois si le type et le même et si le contenu est le même
@@ -35,49 +36,56 @@ function closeModal () {
 
 // Lit l'id des champs et y récupère la <value>
 
-const firstName = document.getElementById("first").value;
-console.log(firstName);
-const lastName = document.getElementById("last").value;
+const firstName = document.getElementById("first").textContent;
+console.log("🚀 ~ file: modal.js ~ line 40 ~ firstName", firstName)
+const lastName = document.getElementById("last").textContent;
+console.log("🚀 ~ file: modal.js ~ line 42 ~ lastName", lastName)
 const mail = document.getElementById("email").value;
+console.log("🚀 ~ file: modal.js ~ line 44 ~ mail", mail)
+
 const bDate = document.getElementById("birthdate").value;
-const radio = document.getElementsByClassName("location").value;
-const checkBox = document.getElementById("checkbox");
+const loKation = document.getElementsByClassName("location");
+const checkBox = document.getElementById("checkbox1");
 
 
 
-let error= document.querySelector("data-error");
-console.log("🚀 ~ file: modal.js ~ line 49 ~ error", error)
-
+let balise= document.querySelector("true");
+console.log("🚀 ~ file: modal.js ~ line 53 ~ balise", balise)
+//lecture attributs data 
+let error = balise.dataset.error
+let errorVisible = balise.dataset.errorVisible
 
 // Pour chaque champ du formulaire, définition des contraintes de API 
+// Fonction check déclenchée au click du bouton submit  
+let envoi = document.getElementById("btn-submit");
+envoi.addEventListener("click", check);
 
 function check() {
   //pour chaque champ du formulaire, vérifie les contraintes
 let validateAll = true; 
    if (firstName.match(/^[a-z]{2,}$/))  {
+     return true;
   } else {
 document.getElementById("first").parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
 // // console.log("🚀 ~ file: modal.js ~ line 62 ~ check ~ first", first)
-
-document.getElementById("first").parentElement.dataset.errorVisible = null; 
+document.getElementById("first").parentElement.dataset.errorVisible = true; 
 // console.log("🚀 ~ file: modal.js ~ line 64 ~ check ~ first", first)
 
-
 validateAll = false;
-
-  }};
+  };
+  
  
 
  /* if (lastName.match(/^[a-z]{2,}$/))  { 
     console.log("match");
-    ("Veuillez entrer 2 caractères ou plus pour le champ du prénom")
+    ("Veuillez entrer 2 caractères ou plus pour le champ du nom")
     
   return false;
   } else {
   
-    ("Veuillez entrer 2 caractères ou plus").reset();
+    ("Veuillez entrer 2 caractères ou plus pour le champ du nom").reset();
   }
-  if (mail.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+  if (!mail.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
     ("Veuillez entrer une adresse mail conforme");
     return false;
   } else {
@@ -96,7 +104,5 @@ validateAll = false;
     return false;
   } else {
     ("Vous devez vérifier que vous acceptez les termes et conditions").reset();
-  }
-
-  check(); 
-*/
+  }*/
+}
