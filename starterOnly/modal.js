@@ -49,12 +49,14 @@ const checkBox = document.getElementById("checkbox1");
 
 
 
-let balise= document.querySelector("true");
-console.log("🚀 ~ file: modal.js ~ line 53 ~ balise", balise)
-//lecture attributs data 
-let error = balise.dataset.error
-let errorVisible = balise.dataset.errorVisible
+let balise= document.hasChildNodes("true");
 
+
+/*
+//lecture attributs data 
+let error = balise..true
+let errorVisible = text.dataset.false
+*/
 // Pour chaque champ du formulaire, définition des contraintes de API 
 // Fonction check déclenchée au click du bouton submit  
 let envoi = document.getElementById("btn-submit");
@@ -68,7 +70,7 @@ let validateAll = true;
   } else {
 document.getElementById("first").parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
 // // console.log("🚀 ~ file: modal.js ~ line 62 ~ check ~ first", first)
-document.getElementById("first").parentElement.dataset.errorVisible = true; 
+//document.getElementById("first").parentElement.dataset.errorVisible = true; 
 // console.log("🚀 ~ file: modal.js ~ line 64 ~ check ~ first", first)
 
 validateAll = false;
