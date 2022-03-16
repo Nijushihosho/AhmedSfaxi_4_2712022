@@ -1,93 +1,94 @@
-
 function editNav() {
-  let x = document.getElementById("myTopnav");
-  // on teste à la fois si le type et le même et si le contenu est le même
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
+	let x = document.getElementById("myTopnav")
+	// on teste à la fois si le type et le même et si le contenu est le même
+	if (x.className === "topnav") {
+		x.className += " responsive"
+	} else {
+		x.className = "topnav"
+	}
 }
 
 // DOM Elements
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
-const btnClose = document.querySelector("span.close");
-
+const modalbg = document.querySelector(".bground")
+const modalBtn = document.querySelectorAll(".modal-btn")
+const formData = document.querySelectorAll(".formData")
+const btnClose = document.querySelector("span.close")
 
 // launch modal event fonction fléchée
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-btnClose.addEventListener("click", closeModal);
-btnClose.addEventListener("click", (e) => {
-console.log(e);
-});
+modalBtn.forEach(btn => btn.addEventListener("click", launchModal))
+btnClose.addEventListener("click", closeModal)
+btnClose.addEventListener("click", e => {
+	console.log(e)
+})
 
 // launch modal form
 function launchModal() {
-  modalbg.style.display = "block";
+	modalbg.style.display = "block"
 }
 
 // Close modal form
-function closeModal () {
-  modalbg.style.display = "none";
+function closeModal() {
+	modalbg.style.display = "none"
 }
 
 // Lit l'id des champs et y récupère la <value>
 
-const firstName = document.getElementById("first").value;
+const firstName = document.getElementById("first").value
 console.log("🚀 ~ file: modal.js ~ line 40 ~ firstName", firstName)
-const lastName = document.getElementById("last").textContent;
+const lastName = document.getElementById("last").value
 console.log("🚀 ~ file: modal.js ~ line 42 ~ lastName", lastName)
-const mail = document.getElementById("email").value;
+const mail = document.getElementById("email").value
 console.log("🚀 ~ file: modal.js ~ line 44 ~ mail", mail)
-const bDate = document.getElementById("birthdate").value;
-const loKation = document.getElementsByClassName("location");
-const checkBox = document.getElementById("checkbox1");
+const bDate = document.getElementById("birthdate").value
+const loKation = document.getElementsByClassName("location")
+const checkBox = document.getElementById("checkbox1")
 
+// Mise en lien dataset et attr data-error entre css et JS
+// Etape 1 création nouveaux éléments après après class=formData
+/*let error = document.querySelector(".formData");
+//error.dataset.error = "true";
+error.classList.add("data-error");
+console.log(error.className);
+error.setAttribute("data-error","Veuillez entrer 2 caractères ou plus pour le champ du prénom");
 
+/*const content = document.querySelector(".formData");
+const attr = document.createAttribute("class");
+attr.value = "true";
+content.setAttribute("attr","Veuillez entrer 2 caractères ou plus pour le champ du prénom");
+*/
 
-// Mise en lien dataset et attr data-error entre css et JS 
-// Etape 1 création nouveaux éléments après après class=formData 
-const element = document.querySelector("div.formdata");
-element.classList.add("data-error");
-console.log(element.className);
+//let errorVisible = document.querySelector(".formData");
+//errorVisible.dataset.errorVisible = "true";
+//errorVisible.classList.add("data-error-visible");
+//console.log(errorVisible.className);
+//errorVisible.setAttribute("data-error-visible","true");
+//
+//errorVisible.insertAdjacentHTML("beforebegin","first");
 
+/*const id = document.querySelector(".formData")
+class.dataset.error //
+class.dataset.errorVisible //
+*/
 
-let error= document.createElement("data-error");
-//document.getElementById("last");
-//error.insertAdjacentHTML("afterend", "formData");
-error.setAttribute("data-error", "true");
+// Fonction check déclenchée au click du bouton submit
+let envoi = document.getElementById("btn-submit")
+envoi.addEventListener("click", check(e));
 
+function check(e) {
+  e.preventDefault();
+	//pour chaque champ du formulaire, vérifie les contraintes
+	let validateAll = true
+	if (firstName.match(/^[a-z]{2,}$/)) {
+    document.querySelector('.formData#first').setAttribute('data-error-visible', 'false')
+    document.querySelector('.formData#first').setAttribute('data-error', '' )
+		validateAll = true
+	} else {
+    document.querySelector('.formData#first').setAttribute('data-error-visible', 'true')
+    document.querySelector('.formData#first').setAttribute('data-error', 'Veuillez renfdtgfgsdg' )
+		validateAll = false
+	}
 
-
-let errorVisible = document.createElement("data-error-visible");
-//document.getElementById("last").appendchild();
-errorVisible.insertAdjacentHTML("beforeend","><label>Prénom</label>");
-errorVisible.setAttribute("data-error-visible","true");
-
-
-// Fonction check déclenchée au click du bouton submit  
-let envoi = document.getElementById("btn-submit");
-envoi.addEventListener("click", check);
-
-function check() {
-  //pour chaque champ du formulaire, vérifie les contraintes
-let validateAll = true; 
-   if (firstName.match(/^[a-z]{2,}$/))  {
-     return true;
-  } else {
-document.getElementById("first").parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
-// // console.log("🚀 ~ file: modal.js ~ line 62 ~ check ~ first", first)
-document.getElementById("first").parentElement.dataset.errorVisible = "true"; 
-// console.log("🚀 ~ file: modal.js ~ line 64 ~ check ~ first", first)
-
-validateAll = false;
-  };
-  
- 
-
- /* if (lastName.match(/^[a-z]{2,}$/))  { 
+	/* if (lastName.match(/^[a-z]{2,}$/))  { 
     console.log("match");
     ("Veuillez entrer 2 caractères ou plus pour le champ du nom")
     
