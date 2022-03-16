@@ -1,5 +1,4 @@
 
-
 function editNav() {
   let x = document.getElementById("myTopnav");
   // on teste à la fois si le type et le même et si le contenu est le même
@@ -38,7 +37,7 @@ function closeModal () {
 
 const firstName = document.getElementById("first").value;
 console.log("🚀 ~ file: modal.js ~ line 40 ~ firstName", firstName)
-const lastName = document.getElementById("last").value;
+const lastName = document.getElementById("last").textContent;
 console.log("🚀 ~ file: modal.js ~ line 42 ~ lastName", lastName)
 const mail = document.getElementById("email").value;
 console.log("🚀 ~ file: modal.js ~ line 44 ~ mail", mail)
@@ -49,15 +48,21 @@ const checkBox = document.getElementById("checkbox1");
 
 
 // Mise en lien dataset et attr data-error entre css et JS 
-// Etape 1 création nouveaux éléments après id first
+// Etape 1 création nouveaux éléments après après class=formData 
+const element = document.querySelector("div.formdata");
+element.classList.add("data-error");
+console.log(element.className);
+
+
 let error= document.createElement("data-error");
-document.getElementById("first");
-error.insertAdjacentHTML("afterend", "formData");
+//document.getElementById("last");
+//error.insertAdjacentHTML("afterend", "formData");
 error.setAttribute("data-error", "true");
 
 
+
 let errorVisible = document.createElement("data-error-visible");
-document.getElementById("first").appendchild();
+//document.getElementById("last").appendchild();
 errorVisible.insertAdjacentHTML("beforeend","><label>Prénom</label>");
 errorVisible.setAttribute("data-error-visible","true");
 
