@@ -36,34 +36,32 @@ function closeModal () {
 
 // Lit l'id des champs et y récupère la <value>
 
-const firstName = document.getElementById("first").textContent;
+const firstName = document.getElementById("first").value;
 console.log("🚀 ~ file: modal.js ~ line 40 ~ firstName", firstName)
-const lastName = document.getElementById("last").textContent;
+const lastName = document.getElementById("last").value;
 console.log("🚀 ~ file: modal.js ~ line 42 ~ lastName", lastName)
 const mail = document.getElementById("email").value;
 console.log("🚀 ~ file: modal.js ~ line 44 ~ mail", mail)
-
 const bDate = document.getElementById("birthdate").value;
 const loKation = document.getElementsByClassName("location");
 const checkBox = document.getElementById("checkbox1");
 
 
 
+// Mise en lien dataset et attr data-error entre css et JS 
+// Etape 1 création nouveaux éléments après id first
+let error= document.createElement("data-error");
+document.getElementById("first");
+error.insertAdjacentHTML("afterend", "formData");
+error.setAttribute("data-error", "true");
 
 
+let errorVisible = document.createElement("data-error-visible");
+document.getElementById("first").appendchild();
+errorVisible.insertAdjacentHTML("beforeend","><label>Prénom</label>");
+errorVisible.setAttribute("data-error-visible","true");
 
 
-//création nouveaux éléments  
-let data-error = document.createElement("div");
-let elt = document.getElementById("first");
-elt.appendChild(data-error);
-
-let errorVisible = document.createElement("div");
-let elt = document.getElementById("first");
-elt.appendChild(data-error-visible);
-
-
-// Pour chaque champ du formulaire, définition des contraintes de API 
 // Fonction check déclenchée au click du bouton submit  
 let envoi = document.getElementById("btn-submit");
 envoi.addEventListener("click", check);
@@ -72,7 +70,7 @@ function check() {
   //pour chaque champ du formulaire, vérifie les contraintes
 let validateAll = true; 
    if (firstName.match(/^[a-z]{2,}$/))  {
-     return false;
+     return true;
   } else {
 document.getElementById("first").parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
 // // console.log("🚀 ~ file: modal.js ~ line 62 ~ check ~ first", first)
