@@ -71,21 +71,24 @@ class.dataset.errorVisible //
 */
 
 // Fonction check déclenchée au click du bouton submit
-const envoi = document.getElementById(".btn-submit")
-envoi.addEventListener("click", check(e));
+const envoi = document.querySelector(".btn-submit")
+envoi.addEventListener("click", function (e) {check(e)});
+
 function check(e) {
 	//pour chaque champ du formulaire, vérifie les contraintes
 	let validateAll = true
-	if (firstName.match(/^[a-z]{2,}$/)) {
+	if (firstName.value.match(/^[a-z]{2,}$/)) {
     document.getElementById("first").parentElement.dataset.error = ""
     document.getElementById("first").parentElement.dataset.errorVisible = "false"
-		validateAll = true
+		validateAll  = true
 	} else { 
-  firstName.parentElement.dataset.error = " Veuillez entrer 2 caractères ou plus pour le champ du prénom "
-  firstName.parentElement.dataset.errorVisible = true
-		validateAll = false
+  firstName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du prénom "
+  firstName.parentElement.dataset.errorVisible = "true"
+		validateAll  = false
 	}
+
 e.preventDefault();
+
 }
 	/* if (lastName.match(/^[a-z]{2,}$/))  { 
     console.log("match");
