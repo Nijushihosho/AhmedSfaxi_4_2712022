@@ -15,6 +15,11 @@ const formData = document.querySelectorAll(".formData")
 const btnClose = document.querySelector("span.close")
 
 // launch modal event fonction fléchée
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+btnClose.addEventListener("click", closeModal);
+btnClose.addEventListener("click", (e) => {
+  console.log(e);
+} );
 modalBtn.forEach(btn => btn.addEventListener("click", launchModal))
 btnClose.addEventListener("click", closeModal)
 btnClose.addEventListener("click", e => {
@@ -32,3 +37,4 @@ function closeModal() {
 }
 
 // Formulaire valide label vers html for et 
+
