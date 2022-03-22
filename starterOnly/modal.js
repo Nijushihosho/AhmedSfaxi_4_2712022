@@ -136,4 +136,3 @@ e.preventDefault();
   } else {
     ("Vous devez vérifier que vous acceptez les termes et conditions").reset();
   }*/
-
