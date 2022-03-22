@@ -15,11 +15,20 @@ const formData = document.querySelectorAll(".formData")
 const btnClose = document.querySelector("span.close")
 
 // launch modal event fonction fléchée
+<<<<<<< HEAD
 modalBtn.forEach(btn => btn.addEventListener("click", launchModal))
 btnClose.addEventListener("click", closeModal)
 btnClose.addEventListener("click", e => {
 	console.log(e)
 })
+=======
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+btnClose.addEventListener("click", closeModal);
+btnClose.addEventListener("click", (e) => {
+  console.log(e);
+} )
+>>>>>>> P4#02
 
 // launch modal form
 function launchModal() {
