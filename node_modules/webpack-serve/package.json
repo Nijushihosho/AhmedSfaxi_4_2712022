@@ -1,0 +1,95 @@
+{
+  "name": "webpack-serve",
+  "version": "4.0.0",
+  "description": "A CLI for webpack-plugin-serve, providing a premier webpack development server",
+  "license": "MIT",
+  "repository": "shellscape/webpack-serve",
+  "author": "Andrew Powell <andrew@shellscape.org>",
+  "homepage": "https://github.com/shellscape/webpack-serve",
+  "bugs": "https://github.com/shellscape/webpack-serve/issues",
+  "bin": "bin/webpack-serve",
+  "engines": {
+    "node": ">= 8.0.0 < 9.0.0 || >= 10.0.0 < 10.14.0 || >= 10.15.0"
+  },
+  "scripts": {
+    "ci:coverage": "nyc npm run test --verbose && nyc report --reporter=text-lcov > coverage.lcov",
+    "ci:lint": "npm run lint && npm run security",
+    "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+    "ci:test": "npm run test -- --verbose",
+    "commitlint": "commitlint",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "lint": "eslint --fix --cache bin/* lib test",
+    "lint-staged": "lint-staged",
+    "security": "npm audit --audit-level=moderate",
+    "test": "ava"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "LICENSE",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "webpack": "^4.29.0"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "decamelize": "^5.0.0",
+    "import-local": "^3.0.1",
+    "is-plain-obj": "^3.0.0",
+    "object-path": "^0.11.5",
+    "pkg-conf": "^3.0.0",
+    "rechoir": "^0.7.0",
+    "v8-compile-cache": "^2.0.2",
+    "webpack-plugin-serve": "^1.4.1",
+    "yargs-parser": "^20.2.7"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.2.0",
+    "@babel/register": "^7.0.0",
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "ava": "^2.4.0",
+    "eslint-config-shellscape": "^3.0.0",
+    "execa": "^5.0.0",
+    "get-port": "^5.0.0",
+    "lint-staged": "^10.5.4",
+    "nyc": "^15.1.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.2.1",
+    "puppeteer": "^1.13.0",
+    "standard-version": "^9.1.1",
+    "strip-ansi": "^6.0.0",
+    "webpack": "^4.29.6",
+    "webpack-nano": "^1.1.1"
+  },
+  "keywords": [
+    "development",
+    "devserver",
+    "serve",
+    "server",
+    "webpack"
+  ],
+  "ava": {
+    "files": [
+      "!**/fixtures/**",
+      "!**/helpers/**"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "nyc": {
+    "include": [
+      "lib/*.js"
+    ],
+    "exclude": [
+      "lib/client*.js",
+      "test/"
+    ]
+  },
+  "pre-commit": "lint-staged"
+}
