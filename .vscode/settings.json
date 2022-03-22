@@ -2,5 +2,10 @@
 	"svn.ignoreMissingSvnWarning": true,
 	"open-in-browser.default": "chrome",
 	"cSpell.enableFiletypes": ["!asciidoc", "!c", "!cpp", "!go"],
+<<<<<<< 0f20dc415d44fa023c88a77f271526f91b642e99
 	"debug.javascript.autoAttachFilter": "smart"
+=======
+	"debug.javascript.autoAttachFilter": "smart",
+	"liveServer.settings.port": 5558
+>>>>>>> #01:
 }
