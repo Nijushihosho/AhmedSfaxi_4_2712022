@@ -124,7 +124,8 @@ bDate.parentElement.dataset.errorVisible = true
 
 e.preventDefault();
 
-  for(i=0 < lokation.lenght;i++) {
+function radioButtonClick(e) {}() {
+  for (i=0 < i++) {;
     if (document.getElementById("location").checked) && (document.getElementById("location2").checked) && (document.getElementById("location3").checked) && (document.getElementById("location4").checked) && (document.getElementById("location5").checked) && (document.getElementById("location6").checked)
     && (document.getElementById("location1").checked);
       validateAll = true
@@ -134,4 +135,4 @@ e.preventDefault();
 lokation.parentElement.dataset.error =("Vous devez vérifier que vous acceptez les termes et conditions");
 lokation.parentElement.dataset.errorVisible = true
 validateAll = false
-} 
+}
