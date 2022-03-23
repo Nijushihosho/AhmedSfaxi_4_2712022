@@ -33,14 +33,14 @@ function closeModal() {
 
 // Lit l'id des champs et y récupère la <value>
 
-const firstName = document.getElementById("first").value;
-console.log("🚀 ~ file: modal.js ~ line 40 ~ firstName", firstName)
-const lastName = document.getElementById("last").value;
+const firstName = document.getElementById("first");
+//console.log("🚀 ~ file: modal.js ~ line 40 ~ firstName", firstName)
+const lastName = document.getElementById("last");
 console.log("🚀 ~ file: modal.js ~ line 42 ~ lastName", lastName)
-const mail = document.getElementById("email").value;
+const mail = document.getElementById("email");
 console.log("🚀 ~ file: modal.js ~ line 44 ~ mail", mail)
-const bDate = document.getElementById("birthdate").value;
-const loKation = document.getElementsByClassName("location").value;
+const bDate = document.getElementById("birthdate");
+const loKation = document.getElementsByClassName("location");
 const checkBox = document.getElementById("checkbox1");
 
 // Mise en lien dataset et attr data-error entre css et JS
@@ -72,14 +72,15 @@ class.dataset.errorVisible //
 
 // Fonction check déclenchée au click du bouton submit
 const envoi = document.querySelector(".btn-submit")
-envoi.addEventListener("click", function (e) {check(e)});
+//envoi.addEventListener("click", function (e) {check(e)});
+envoi.addEventListener("click", check);
 
 function check(e) {
 	//pour chaque champ du formulaire, vérifie les contraintes
 	let validateAll = true
 	if (firstName.value.match(/^[a-z]{2,}$/)) {
     document.getElementById("first").parentElement.dataset.error = ""
-    document.getElementById("first").parentElement.dataset.errorVisible = "false"
+    document.getElementById("first").parentElement.dataset.errorVisible = false
 		validateAll  = true
 	} else { 
   firstName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du prénom "
@@ -87,11 +88,11 @@ function check(e) {
 		validateAll  = false
 	}
 
-e.preventDefault();
 
+/*
 if (lastName.value.match(/^[a-z]{2,}$/)) {
   document.getElementById("last").parentElement.dataset.error = ""
-  document.getElementById("last").parentElement.dataset.errorVisible = "false"
+  document.getElementById("last").parentElement.dataset.errorVisible = false
   validateAll  = true
 } else { 
 lastName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du nom "
@@ -99,11 +100,10 @@ lastName.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
 
-e.preventDefault();
 
 if (mail.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) { 
   document.getElementById("email").parentElement.dataset.error = ""
-  document.getElementById("email").parentElement.dataset.errorVisible = "false"
+  document.getElementById("email").parentElement.dataset.errorVisible = false
   validateAll  = true
 } else { 
 mail.parentElement.dataset.error = "Veuillez entrer une adresse mail conforme"
@@ -111,20 +111,20 @@ mail.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
 
-e.preventDefault();
+
 if (bDate.match(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/)) {
   document.getElementById("birthdate").parentElement.dataset.error = ""
-  document.getElementById("birthdate").parentElement.dataset.errorVisible = "false"
+  document.getElementById("birthdate").parentElement.dataset.errorVisible = false
   validateAll  = true
 } else { 
 bDate.parentElement.dataset.error = "Veuillez entrer votre date de naissance"
 bDate.parentElement.dataset.errorVisible = true
   validateAll  = false
-}
+}*/
 
 e.preventDefault();
-
-function radioButtonClick(e) {}() {
+}
+/*function radioButtonClick(e) {}() {
   for (i=0 < i++) {;
     if (document.getElementById("location").checked) && (document.getElementById("location2").checked) && (document.getElementById("location3").checked) && (document.getElementById("location4").checked) && (document.getElementById("location5").checked) && (document.getElementById("location6").checked)
     && (document.getElementById("location1").checked);
@@ -135,4 +135,4 @@ function radioButtonClick(e) {}() {
 lokation.parentElement.dataset.error =("Vous devez vérifier que vous acceptez les termes et conditions");
 lokation.parentElement.dataset.errorVisible = true
 validateAll = false
-}
+}*/
