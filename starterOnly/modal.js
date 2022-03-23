@@ -40,7 +40,7 @@ console.log("🚀 ~ file: modal.js ~ line 42 ~ lastName", lastName)
 const mail = document.getElementById("email").value;
 console.log("🚀 ~ file: modal.js ~ line 44 ~ mail", mail)
 const bDate = document.getElementById("birthdate").value;
-const loKation = document.getElementsByClassName("location");
+const loKation = document.getElementsByClassName("location").value;
 const checkBox = document.getElementById("checkbox1");
 
 // Mise en lien dataset et attr data-error entre css et JS
@@ -79,7 +79,7 @@ function check(e) {
 	let validateAll = true
 	if (firstName.value.match(/^[a-z]{2,}$/)) {
     document.getElementById("first").parentElement.dataset.error = ""
-    document.getElementById("first").parentElement.dataset.errorVisible = false
+    document.getElementById("first").parentElement.dataset.errorVisible = "false"
 		validateAll  = true
 	} else { 
   firstName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du prénom "
@@ -91,7 +91,7 @@ e.preventDefault();
 
 if (lastName.value.match(/^[a-z]{2,}$/)) {
   document.getElementById("last").parentElement.dataset.error = ""
-  document.getElementById("last").parentElement.dataset.errorVisible = false
+  document.getElementById("last").parentElement.dataset.errorVisible = "false"
   validateAll  = true
 } else { 
 lastName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du nom "
@@ -103,7 +103,7 @@ e.preventDefault();
 
 if (mail.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) { 
   document.getElementById("email").parentElement.dataset.error = ""
-  document.getElementById("email").parentElement.dataset.errorVisible = false
+  document.getElementById("email").parentElement.dataset.errorVisible = "false"
   validateAll  = true
 } else { 
 mail.parentElement.dataset.error = "Veuillez entrer une adresse mail conforme"
@@ -114,7 +114,7 @@ mail.parentElement.dataset.errorVisible = true
 e.preventDefault();
 if (bDate.match(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/)) {
   document.getElementById("birthdate").parentElement.dataset.error = ""
-  document.getElementById("birthdate").parentElement.dataset.errorVisible = false
+  document.getElementById("birthdate").parentElement.dataset.errorVisible = "false"
   validateAll  = true
 } else { 
 bDate.parentElement.dataset.error = "Veuillez entrer votre date de naissance"
@@ -124,15 +124,14 @@ bDate.parentElement.dataset.errorVisible = true
 
 e.preventDefault();
 
-} 
- 
-	/*
-   
-  for(i=0 < i=)
-  if (document.getElementByClass("location").checked==false) && (document.getElementById("location2").checked==false) && (document.getElementById("location3").checked==false) && (document.getElementById("location4").checked==false) && (document.getElementById("location5").checked==false) && (document.getElementById("location6").checked==false)
+  for(i=0 < lokation.lenght;i++) {
+    if (document.getElementById("location").checked) && (document.getElementById("location2").checked) && (document.getElementById("location3").checked) && (document.getElementById("location4").checked) && (document.getElementById("location5").checked) && (document.getElementById("location6").checked)
+    && (document.getElementById("location1").checked);
+      validateAll = true
+    } else {
+(document.getElementById("location").checked==false) && (document.getElementById("location2").checked==false) && (document.getElementById("location3").checked==false) && (document.getElementById("location4").checked==false) && (document.getElementById("location5").checked==false) && (document.getElementById("location6").checked==false)
 && (document.getElementById("location1").checked==false);
- ("Vous devez vérifier que vous acceptez les termes et conditions");
-    return false;
-  } else {
-    ("Vous devez vérifier que vous acceptez les termes et conditions").reset();
-  }*/
+lokation.parentElement.dataset.error =("Vous devez vérifier que vous acceptez les termes et conditions");
+lokation.parentElement.dataset.errorVisible = true
+validateAll = false
+} 
