@@ -1,3 +1,6 @@
 {
-	"recommendations": ["ms-vscode.js-debug-nightly"]
+	"recommendations": [
+		"ms-vscode.js-debug-nightly",
+		"Shan.code-settings-sync"
+	]
 }

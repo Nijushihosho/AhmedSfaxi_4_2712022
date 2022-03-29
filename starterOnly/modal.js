@@ -34,11 +34,8 @@ function closeModal() {
 // Lit l'id des champs et y récupère la <value>
 
 const firstName = document.getElementById("first");
-//console.log("🚀 ~ file: modal.js ~ line 40 ~ firstName", firstName)
 const lastName = document.getElementById("last");
-console.log("🚀 ~ file: modal.js ~ line 42 ~ lastName", lastName)
 const mail = document.getElementById("email");
-console.log("🚀 ~ file: modal.js ~ line 44 ~ mail", mail)
 const bDate = document.getElementById("birthdate");
 const loKation = document.getElementsByClassName("location");
 const checkBox = document.getElementById("checkbox1");
@@ -72,7 +69,6 @@ class.dataset.errorVisible //
 
 // Fonction check déclenchée au click du bouton submit
 const envoi = document.querySelector(".btn-submit")
-//envoi.addEventListener("click", function (e) {check(e)});
 envoi.addEventListener("click", check);
 
 function check(e) {
@@ -87,9 +83,6 @@ function check(e) {
   firstName.parentElement.dataset.errorVisible = true
 		validateAll  = false
 	}
-
-
-/*
 if (lastName.value.match(/^[a-z]{2,}$/)) {
   document.getElementById("last").parentElement.dataset.error = ""
   document.getElementById("last").parentElement.dataset.errorVisible = false
@@ -99,9 +92,7 @@ lastName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus po
 lastName.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
-
-
-if (mail.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) { 
+if (mail.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@+(?:\.[a-zA-Z0-9-]+)*$/)) { 
   document.getElementById("email").parentElement.dataset.error = ""
   document.getElementById("email").parentElement.dataset.errorVisible = false
   validateAll  = true
@@ -110,9 +101,7 @@ mail.parentElement.dataset.error = "Veuillez entrer une adresse mail conforme"
 mail.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
-
-
-if (bDate.match(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/)) {
+if (bDate.value.match(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/)) {
   document.getElementById("birthdate").parentElement.dataset.error = ""
   document.getElementById("birthdate").parentElement.dataset.errorVisible = false
   validateAll  = true
@@ -120,10 +109,11 @@ if (bDate.match(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/))
 bDate.parentElement.dataset.error = "Veuillez entrer votre date de naissance"
 bDate.parentElement.dataset.errorVisible = true
   validateAll  = false
-}*/
+}
 
 e.preventDefault();
 }
+
 /*function radioButtonClick(e) {}() {
   for (i=0 < i++) {;
     if (document.getElementById("location").checked) && (document.getElementById("location2").checked) && (document.getElementById("location3").checked) && (document.getElementById("location4").checked) && (document.getElementById("location5").checked) && (document.getElementById("location6").checked)
