@@ -37,7 +37,7 @@ const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const mail = document.getElementById("email");
 const bDate = document.getElementById("birthdate");
-const loKation = document.getElementsByClassName("location");
+const termes = document.getElementsByClassName("checkbox-input");
 const checkBox = document.getElementById("checkbox1");
 
 // Mise en lien dataset et attr data-error entre css et JS
@@ -111,18 +111,17 @@ bDate.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
 
-e.preventDefault();
+if (document.getElementsByClassName("checkbox-input").checked){
+  document.getElementsByClassName("checkbox-input").parentElement.dataset.error = ""
+  document.getElementsByClassName("checkbox-input").parentElement.dataset.errorVisible = false
+      validateAll = true
+} else {
+termes.parentElement.dataset.error = "Vous devez vérifier que vous acceptez les termes et conditions"
+termes.parentElement.dataset.errorVisible = true
+validateAll = false
 }
 
-/*function radioButtonClick(e) {}() {
-  for (i=0 < i++) {;
-    if (document.getElementById("location").checked) && (document.getElementById("location2").checked) && (document.getElementById("location3").checked) && (document.getElementById("location4").checked) && (document.getElementById("location5").checked) && (document.getElementById("location6").checked)
-    && (document.getElementById("location1").checked);
-      validateAll = true
-    } else {
-(document.getElementById("location").checked==false) && (document.getElementById("location2").checked==false) && (document.getElementById("location3").checked==false) && (document.getElementById("location4").checked==false) && (document.getElementById("location5").checked==false) && (document.getElementById("location6").checked==false)
-&& (document.getElementById("location1").checked==false);
-lokation.parentElement.dataset.error =("Vous devez vérifier que vous acceptez les termes et conditions");
-lokation.parentElement.dataset.errorVisible = true
-validateAll = false
-}*/
+{
+e.preventDefault();
+}}
+;
