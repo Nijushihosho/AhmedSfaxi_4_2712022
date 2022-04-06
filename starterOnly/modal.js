@@ -38,7 +38,7 @@ const lastName = document.getElementById("last");
 const mail = document.getElementById("email");
 const bDate = document.getElementById("birthdate");
 const termes = document.getElementById("checkbox1");
-const radio = document.getElementsByClassName("checkbox-input");
+const radio = document.getElementById("checkbox-label");
 
 // Fonction check déclenchée au click du bouton submit
 const envoi = document.querySelector(".btn-submit")
@@ -65,36 +65,40 @@ lastName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus po
 lastName.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
-if (mail.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@+(?:\.[a-zA-Z0-9-]+)*$/)) { 
+if (mail.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@+(?:\.[a-zA-Z0-9-]+)*$/)){
+  console.log(email.value); 
   document.getElementById("email").parentElement.dataset.error = ""
   document.getElementById("email").parentElement.dataset.errorVisible = false
   validateAll  = true
 } else { 
+  console.log("else ",email.value);
 mail.parentElement.dataset.error = "Veuillez entrer une adresse mail conforme"
 mail.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
 if (bDate.value.match(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/)) {
+  console.log("valid");
   document.getElementById("birthdate").parentElement.dataset.error = ""
   document.getElementById("birthdate").parentElement.dataset.errorVisible = false
   validateAll  = true
 } else { 
+  console.log("invalid ",bDate.valueAsDate);
 bDate.parentElement.dataset.error = "Veuillez entrer votre date de naissance"
 bDate.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
-
-if (document.getElementsByClassName("checkbox-input")){
-  document.getElementsByClassName("checkbox-input").parentElement.dataset.error = ""
-  document.getElementsByClassName("checkbox-input").parentElement.dataset.errorVisible = false
+/*
+if (document.querySelector("input[name="location"]:checked")) {
+  document.getElementById("checkbox-label").parentElement.dataset.error = ""
+  document.getElementById("checkbox-label").parentElement.dataset.errorVisible = false
       validateAll = true
 } else {
 radio.parentElement.dataset.error = "Vous devez choisir une option"
 radio.parentElement.dataset.errorVisible = true
 validateAll = false
-}
+}*/
 
-if (document.getElementById("checkbox1")){
+if (document.getElementById("checkbox1").checked== true) {
   document.getElementById("checkbox1").parentElement.dataset.error = ""
   document.getElementById("checkbox1").parentElement.dataset.errorVisible = false
       validateAll = true
