@@ -3,7 +3,7 @@
 	"open-in-browser.default": "chrome",
 	"cSpell.enableFiletypes": ["!asciidoc", "!c", "!cpp", "!go"],
 	"debug.javascript.autoAttachFilter": "smart",
-	"liveServer.settings.port": 5558,
+	"liveServer.settings.port": 6258,
 	"sync.autoDownload": true,
 	"sync.autoUpload": true,
 	"sync.gist": "nijushihosho"

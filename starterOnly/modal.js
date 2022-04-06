@@ -37,35 +37,8 @@ const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const mail = document.getElementById("email");
 const bDate = document.getElementById("birthdate");
-const termes = document.getElementsByClassName("checkbox-input");
-const checkBox = document.getElementById("checkbox1");
-
-// Mise en lien dataset et attr data-error entre css et JS
-// Etape 1 création nouveaux éléments après après class=formData
-/*let error = document.querySelector(".formData");
-//error.dataset.error = "true";
-error.classList.add("data-error");
-console.log(error.className);
-error.setAttribute("data-error","Veuillez entrer 2 caractères ou plus pour le champ du prénom");
-
-/*const content = document.querySelector(".formData");
-const attr = document.createAttribute("class");
-attr.value = "true";
-content.setAttribute("attr","Veuillez entrer 2 caractères ou plus pour le champ du prénom");
-*/
-
-//let errorVisible = document.querySelector(".formData");
-//errorVisible.dataset.errorVisible = "true";
-//errorVisible.classList.add("data-error-visible");
-//console.log(errorVisible.className);
-//errorVisible.setAttribute("data-error-visible","true");
-//
-//errorVisible.insertAdjacentHTML("beforebegin","first");
-
-/*const id = document.querySelector(".formData")
-class.dataset.error //
-class.dataset.errorVisible //
-*/
+const termes = document.getElementById("checkbox1");
+const radio = document.getElementsByClassName("checkbox-input");
 
 // Fonction check déclenchée au click du bouton submit
 const envoi = document.querySelector(".btn-submit")
@@ -111,9 +84,19 @@ bDate.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
 
-if (document.getElementsByClassName("checkbox-input").checked){
+if (document.getElementsByClassName("checkbox-input")){
   document.getElementsByClassName("checkbox-input").parentElement.dataset.error = ""
   document.getElementsByClassName("checkbox-input").parentElement.dataset.errorVisible = false
+      validateAll = true
+} else {
+radio.parentElement.dataset.error = "Vous devez choisir une option"
+radio.parentElement.dataset.errorVisible = true
+validateAll = false
+}
+
+if (document.getElementById("checkbox1")){
+  document.getElementById("checkbox1").parentElement.dataset.error = ""
+  document.getElementById("checkbox1").parentElement.dataset.errorVisible = false
       validateAll = true
 } else {
 termes.parentElement.dataset.error = "Vous devez vérifier que vous acceptez les termes et conditions"
