@@ -37,6 +37,7 @@ const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const mail = document.getElementById("email");
 const bDate = document.getElementById("birthdate");
+const number = document.getElementById("quantity");
 const termes = document.getElementById("checkbox1");
 const radio = document.getElementById("checkbox-label");
 
@@ -87,6 +88,17 @@ bDate.parentElement.dataset.error = "Veuillez entrer votre date de naissance"
 bDate.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
+
+if (number.value.match(/^[0-99]$/)){ 
+  document.getElementById("quantity").parentElement.dataset.error = ""
+  document.getElementById("quantity").parentElement.dataset.errorVisible = false
+  validateAll  = true
+} else { 
+number.parentElement.dataset.error = "Veuillez entrer un chiffre entre 0 et 99"
+number.parentElement.dataset.errorVisible = true
+  validateAll  = false
+}
+
 /*
 if (document.querySelector("input[name="location"]:checked")) {
   document.getElementById("checkbox-label").parentElement.dataset.error = ""
