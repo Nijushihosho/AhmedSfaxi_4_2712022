@@ -172,17 +172,6 @@ radio6.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
 
-/*
-if (docum) {
-  document.getElementsByClassName("location").parentElement.dataset.error = ""
-  document.getElementsByClassName("location").parentElement.dataset.errorVisible = false
-      validateAll = true
-} else {
-checkBox.parentElement.dataset.error = "Vous devez choisir une option"
-checkBox.parentElement.dataset.errorVisible = true
-validateAll = false
-}
-*/
 if (document.getElementById("checkbox1").checked) {
   document.getElementById("checkbox1").parentElement.dataset.error = ""
   document.getElementById("checkbox1").parentElement.dataset.errorVisible = false
