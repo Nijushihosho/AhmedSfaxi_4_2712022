@@ -39,7 +39,9 @@ const mail = document.getElementById("email");
 const bDate = document.getElementById("birthdate");
 const number = document.getElementById("quantity");
 const termes = document.getElementById("checkbox1");
-const radio = document.getElementById("checkbox-label");
+
+
+const location1 = document.getElementById("location1");
 
 // Fonction check déclenchée au click du bouton submit
 const envoi = document.querySelector(".btn-submit")
@@ -78,12 +80,12 @@ mail.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
 if (bDate.value.match(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/)) {
-  console.log("valid");
+  console.log("valid",bDate.value);
   document.getElementById("birthdate").parentElement.dataset.error = ""
   document.getElementById("birthdate").parentElement.dataset.errorVisible = false
   validateAll  = true
 } else { 
-  console.log("invalid ",bDate.valueAsDate);
+  console.log("invalid ",bDate.value);
 bDate.parentElement.dataset.error = "Veuillez entrer votre date de naissance"
 bDate.parentElement.dataset.errorVisible = true
   validateAll  = false
@@ -99,17 +101,20 @@ number.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
 
+if (location1.checked == true) 
+{console.log("ny a été coché")
+}
 /*
-if (document.querySelector("input[name="location"]:checked")) {
-  document.getElementById("checkbox-label").parentElement.dataset.error = ""
-  document.getElementById("checkbox-label").parentElement.dataset.errorVisible = false
+if (docum) {
+  document.getElementsByClassName("location").parentElement.dataset.error = ""
+  document.getElementsByClassName("location").parentElement.dataset.errorVisible = false
       validateAll = true
 } else {
-radio.parentElement.dataset.error = "Vous devez choisir une option"
-radio.parentElement.dataset.errorVisible = true
+checkBox.parentElement.dataset.error = "Vous devez choisir une option"
+checkBox.parentElement.dataset.errorVisible = true
 validateAll = false
-}*/
-
+}
+*/
 if (document.getElementById("checkbox1").checked== true) {
   document.getElementById("checkbox1").parentElement.dataset.error = ""
   document.getElementById("checkbox1").parentElement.dataset.errorVisible = false
