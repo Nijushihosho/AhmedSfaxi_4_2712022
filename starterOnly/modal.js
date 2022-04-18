@@ -40,7 +40,7 @@ const bDate = document.getElementById("birthdate");
 const number = document.getElementById("quantity");
 const termes = document.getElementById("checkbox1");
 
-
+//variables boutons radio
 const radio1 = document.getElementById("location1");
 const radio2 = document.getElementById("location2");
 const radio3 = document.getElementById("location3");
@@ -73,7 +73,7 @@ lastName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus po
 lastName.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
-if (mail.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@+(?:\.[a-zA-Z0-9-]+)*$/)){
+if (mail.value.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
   console.log(email.value); 
   document.getElementById("email").parentElement.dataset.error = ""
   document.getElementById("email").parentElement.dataset.errorVisible = false
