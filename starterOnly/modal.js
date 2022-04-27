@@ -84,7 +84,7 @@ mail.parentElement.dataset.error = "Veuillez entrer une adresse mail conforme"
 mail.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
-if (bDate.value.match(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/)) {
+if (bDate.value.length > 0) {
   console.log("valid",bDate.value);
   document.getElementById("birthdate").parentElement.dataset.error = ""
   document.getElementById("birthdate").parentElement.dataset.errorVisible = false
