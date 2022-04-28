@@ -1,3 +1,5 @@
+const { func } = require("superstruct");
+
 function editNav() {
 	let x = document.getElementById("myTopnav")
 	// on teste à la fois si le type et le même et si le contenu est le même
@@ -41,6 +43,8 @@ const number = document.getElementById("quantity");
 const termes = document.getElementById("checkbox1");
 
 //variables boutons radio
+
+
 const radio1 = document.getElementById("location1");
 const radio2 = document.getElementById("location2");
 const radio3 = document.getElementById("location3");
@@ -106,71 +110,7 @@ number.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
 
-if (radio1.checked==true) 
-{console.log("New York a été coché");
-document.getElementById("location1").parentElement.dataset.error = ""
-  document.getElementById("location1").parentElement.dataset.errorVisible = false
-  validateAll  = true
-} else { 
-radio1.parentElement.dataset.error = "Vous devez choisir une option"
-radio1.parentElement.dataset.errorVisible = true
-  validateAll  = false
-}
 
-if (radio2.checked==true) 
-{console.log("San Francisco a été coché");
-document.getElementById("location2").parentElement.dataset.error = ""
-  document.getElementById("location2").parentElement.dataset.errorVisible = false
-  validateAll  = true
-} else { 
-radio2.parentElement.dataset.error = "Vous devez choisir une option"
-radio2.parentElement.dataset.errorVisible = true
-  validateAll  = false
-}
-
-if (radio3.checked==true) 
-{console.log("Seatle a été coché");
-document.getElementById("location2").parentElement.dataset.error = ""
-  document.getElementById("location2").parentElement.dataset.errorVisible = false
-  validateAll  = true
-} else { 
-radio3.parentElement.dataset.error = "Vous devez choisir une option"
-radio3.parentElement.dataset.errorVisible = true
-  validateAll  = false
-}
-
-if (radio4.checked==true) 
-{console.log("Chicago a été coché");
-document.getElementById("location2").parentElement.dataset.error = ""
-  document.getElementById("location2").parentElement.dataset.errorVisible = false
-  validateAll  = true
-} else { 
-radio4.parentElement.dataset.error = "Vous devez choisir une option"
-radio4.parentElement.dataset.errorVisible = true
-  validateAll  = false
-}
-
-if (radio5.checked==true) 
-{console.log("Boston a été coché");
-document.getElementById("location2").parentElement.dataset.error = ""
-  document.getElementById("location2").parentElement.dataset.errorVisible = false
-  validateAll  = true
-} else { 
-radio5.parentElement.dataset.error = "Vous devez choisir une option"
-radio5.parentElement.dataset.errorVisible = true
-  validateAll  = false
-}
-
-if (radio6.checked==true) 
-{console.log("Portland a été coché");
-document.getElementById("location2").parentElement.dataset.error = ""
-  document.getElementById("location2").parentElement.dataset.errorVisible = false
-  validateAll  = true
-} else { 
-radio6.parentElement.dataset.error = "Vous devez choisir une option"
-radio6.parentElement.dataset.errorVisible = true
-  validateAll  = false
-}
 
 if (document.getElementById("checkbox1").checked) {
   document.getElementById("checkbox1").parentElement.dataset.error = ""
