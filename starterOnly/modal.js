@@ -42,15 +42,11 @@ const bDate = document.getElementById("birthdate");
 const number = document.getElementById("quantity");
 const termes = document.getElementById("checkbox1");
 
+
+
 //variables boutons radio
-
-
-const radio1 = document.getElementById("location1");
-const radio2 = document.getElementById("location2");
-const radio3 = document.getElementById("location3");
-const radio4 = document.getElementById("location4");
-const radio5 = document.getElementById("location5");
-const radio6 = document.getElementById("location6");
+const checkboxInput = document.getElementsByClassName("checkbox-input");
+const location = document.getElementsByClassName("location");
 
 // Fonction check déclenchée au click du bouton submit
 const envoi = document.querySelector(".btn-submit")
@@ -59,6 +55,8 @@ envoi.addEventListener("click", check);
 function check(e) {
 	//pour chaque champ du formulaire, vérifie les contraintes
 	let validateAll = true
+
+  // champ nom 
 	if (firstName.value.match(/^[a-z]{2,}$/)) {
     document.getElementById("first").parentElement.dataset.error = ""
     document.getElementById("first").parentElement.dataset.errorVisible = false
@@ -68,6 +66,8 @@ function check(e) {
   firstName.parentElement.dataset.errorVisible = true
 		validateAll  = false
 	}
+
+  // champ prénom 
 if (lastName.value.match(/^[a-z]{2,}$/)) {
   document.getElementById("last").parentElement.dataset.error = ""
   document.getElementById("last").parentElement.dataset.errorVisible = false
@@ -77,6 +77,8 @@ lastName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus po
 lastName.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
+
+// adresse mail
 if (mail.value.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
   console.log(email.value); 
   document.getElementById("email").parentElement.dataset.error = ""
@@ -88,6 +90,9 @@ mail.parentElement.dataset.error = "Veuillez entrer une adresse mail conforme"
 mail.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
+
+// Date de naissance 
+
 if (bDate.value.length > 0) {
   console.log("valid",bDate.value);
   document.getElementById("birthdate").parentElement.dataset.error = ""
@@ -100,6 +105,7 @@ bDate.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
 
+// Participation à des tournois  
 if (number.value.match(/^[0-99]$/)){ 
   document.getElementById("quantity").parentElement.dataset.error = ""
   document.getElementById("quantity").parentElement.dataset.errorVisible = false
@@ -110,7 +116,29 @@ number.parentElement.dataset.errorVisible = true
   validateAll  = false
 }
 
+// Choix des options villes
 
+for (var i = 0; i < location.length; i++) {
+  location[i].addEventListener('click',updateDisplay);
+}
+
+function updateDisplay(){
+  var checkedCount = 1;
+  for(var i= 0; i < location.length; i++) {
+    if(location[i].checked) {
+      checkedCount++;
+    }
+}
+if(checkedCount === 0) {
+  checkboxInput.checked = false;
+} else if(checkedCount === location.length) {
+  checkboxInput.checked = true;
+} else {
+  checkboxInput.checked = false;
+  location.parentElement.dataset.errorVisible = true
+}
+
+// termes et conditions 
 
 if (document.getElementById("checkbox1").checked) {
   document.getElementById("checkbox1").parentElement.dataset.error = ""
@@ -124,5 +152,5 @@ validateAll = false
 
 {
 e.preventDefault();
-}}
-;
+}
+}
