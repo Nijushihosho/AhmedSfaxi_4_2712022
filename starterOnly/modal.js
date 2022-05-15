@@ -1,4 +1,3 @@
-const { func } = require("superstruct");
 
 function editNav() {
 	let x = document.getElementById("myTopnav")
@@ -45,8 +44,7 @@ const termes = document.getElementById("checkbox1");
 
 
 //variables boutons radio
-const checkboxInput = document.getElementsByClassName("checkbox-input");
-const location = document.getElementsByClassName("location");
+const radio = document.querySelectorAll("input[name='location']:checked");
 
 // Fonction check déclenchée au click du bouton submit
 const envoi = document.querySelector(".btn-submit")
@@ -118,27 +116,14 @@ number.parentElement.dataset.errorVisible = true
 
 // Choix des options villes
 
-for (var i = 0; i < location.length; i++) {
-  location[i].addEventListener('click',updateDisplay);
-}
-
-function updateDisplay(){
-  var checkedCount = 1;
-  for(var i= 0; i < location.length; i++) {
-    if(location[i].checked) {
-      checkedCount++;
-    }
-}
-if(checkedCount === 0) {
-  checkboxInput.checked = false;
-} else if(checkedCount === location.length) {
-  checkboxInput.checked = true;
+if(!(radio.length)) {
+  radio.parentElement.dataset.errorVisible = false
 } else {
-  checkboxInput.checked = false;
-  location.parentElement.dataset.errorVisible = true
+  radio.parentElement.dataset.errorVisible = true
 }
 
 // termes et conditions 
+
 
 if (document.getElementById("checkbox1").checked) {
   document.getElementById("checkbox1").parentElement.dataset.error = ""
@@ -153,4 +138,4 @@ validateAll = false
 {
 e.preventDefault();
 }
-}
+};
