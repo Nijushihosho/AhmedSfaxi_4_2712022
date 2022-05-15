@@ -1,4 +1,3 @@
-
 function editNav() {
 	let x = document.getElementById("myTopnav")
 	// on teste à la fois si le type et le même et si le contenu est le même
@@ -44,7 +43,7 @@ const termes = document.getElementById("checkbox1");
 
 
 //variables boutons radio
-const radio = document.querySelectorAll("input[name='location']:checked");
+const radio = document.querySelectorAll("input[name='location']");
 
 // Fonction check déclenchée au click du bouton submit
 const envoi = document.querySelector(".btn-submit")
@@ -116,10 +115,15 @@ number.parentElement.dataset.errorVisible = true
 
 // Choix des options villes
 
-if(!(radio.length)) {
+if (radio.checked) {
+  console.log("🚀 ~ file: modal.js ~ line 119 ~ check ~ radio", radio)
+  radio.parentElement.dataset.error = ""
   radio.parentElement.dataset.errorVisible = false
+  validateAll = true
 } else {
+  radio.parentElement.dataset.error = "Veuillez cocher une option"
   radio.parentElement.dataset.errorVisible = true
+  validateAll = false
 }
 
 // termes et conditions 
