@@ -6,5 +6,8 @@
 	"liveServer.settings.port": 7022,
 	"sync.autoDownload": true,
 	"sync.autoUpload": true,
-	"sync.gist": "nijushihosho"
+	"sync.gist": "nijushihosho",
+	"liveServer.settings.useWebExt": false,
+	"liveServer.settings.CustomBrowser": "firefox",
+	"debug.javascript.breakOnConditionalError": true
 }

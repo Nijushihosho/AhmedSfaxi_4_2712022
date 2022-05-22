@@ -30,7 +30,7 @@ function launchModal() {
 function closeModal() {
 	modalbg.style.display = "none"
 }
-
+ 
 // Lit l'id des champs et y récupère la <value>
 
 const firstName = document.getElementById("first");
@@ -43,13 +43,14 @@ const termes = document.getElementById("checkbox1");
 
 
 //variables boutons radio
-const radio = document.querySelectorAll("input[name='location']");
+const radioList = document.querySelectorAll("input[name='location']");
 
 // Fonction check déclenchée au click du bouton submit
 const envoi = document.querySelector(".btn-submit")
-envoi.addEventListener("click", check);
+document.forms[0].addEventListener("submit", check);
 
 function check(e) {
+  e.preventDefault();
 	//pour chaque champ du formulaire, vérifie les contraintes
 	let validateAll = true
 
@@ -67,7 +68,7 @@ function check(e) {
   // champ prénom 
 if (lastName.value.match(/^[a-z]{2,}$/)) {
   document.getElementById("last").parentElement.dataset.error = ""
-  document.getElementById("last").parentElement.dataset.errorVisible = false
+  document.getElementById("last").parentElement.dataset.errorVisible = "false"
   validateAll  = true
 } else { 
 lastName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du nom "
@@ -115,14 +116,26 @@ number.parentElement.dataset.errorVisible = true
 
 // Choix des options villes
 
-if (radio.checked) {
-  console.log("🚀 ~ file: modal.js ~ line 119 ~ check ~ radio", radio)
-  radio.parentElement.dataset.error = ""
-  radio.parentElement.dataset.errorVisible = false
+// console.log(radio)
+let isValid = false;
+
+for (let i = 0; i < radioList.length ;  i++) {
+  
+  if (radioList[i].checked) {
+    isValid = true;
+    break;
+  }
+}
+
+if (isValid) {
+  // console.log("🚀 ~ file: modal.js ~ line 119 ~ check ~ radio", radio)
+  radioList[0].parentElement.dataset.error = ""
+  radioList[0].parentElement.dataset.errorVisible = false
   validateAll = true
 } else {
-  radio.parentElement.dataset.error = "Veuillez cocher une option"
-  radio.parentElement.dataset.errorVisible = true
+  radioList[0].parentElement.dataset.error = "Veuillez cocher une option"
+  // console.log("🚀 ~ file: modal.js ~ line 127 ~ check ~ radio", radio)
+  radioList[0].parentElement.dataset.errorVisible = true
   validateAll = false
 }
 
@@ -139,7 +152,9 @@ termes.parentElement.dataset.errorVisible = true
 validateAll = false
 }
 
-{
-e.preventDefault();
+// Fonction c'est parti déclenchée au click du bouton submit
+
+//let merci = document.querySelector(".button")
+//document.forms[0].addEventListener("submit", merci);
 }
-};
+;
