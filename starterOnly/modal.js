@@ -152,9 +152,15 @@ termes.parentElement.dataset.errorVisible = true
 validateAll = false
 }
 
-// Fonction c'est parti déclenchée au click du bouton submit
+// Fonction merci avec déclenchement de la modal */
+const modalContainer = document.querySelector(".modal-container");
+const modalTriggers = document.querySelectorAll(".modal-trigger");
 
-//let merci = document.querySelector(".button")
-//document.forms[0].addEventListener("submit", merci);
+modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
+
+function toggleModal(){
+
+/*rajoute la class active s'il n'y est pas*/   
+modalContainer.classList.toggle("active")
 }
 ;

@@ -8,6 +8,8 @@
 	"sync.autoUpload": true,
 	"sync.gist": "nijushihosho",
 	"liveServer.settings.useWebExt": false,
-	"liveServer.settings.CustomBrowser": "firefox",
-	"debug.javascript.breakOnConditionalError": true
+	"liveServer.settings.CustomBrowser": "chrome",
+	"debug.javascript.breakOnConditionalError": true,
+	"liveServer.settings.showOnStatusbar": false,
+	"livePreview.tasks.runTaskWithExternalPreview": false
 }
