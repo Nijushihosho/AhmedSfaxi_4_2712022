@@ -53,27 +53,29 @@ function check(e) {
   e.preventDefault();
 	//pour chaque champ du formulaire, vérifie les contraintes
 	let validateAll = true
+  let firstNameIsValid = false;
+  let lastNameIsValid = false;
 
   // champ nom 
 	if (firstName.value.match(/^[a-z]{2,}$/)) {
     document.getElementById("first").parentElement.dataset.error = ""
     document.getElementById("first").parentElement.dataset.errorVisible = false
-		validateAll  = true
+		firstNameIsValid  = true
 	} else { 
   firstName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du prénom "
   firstName.parentElement.dataset.errorVisible = true
-		validateAll  = false
+  firstNameIsValid  = false
 	}
 
   // champ prénom 
 if (lastName.value.match(/^[a-z]{2,}$/)) {
   document.getElementById("last").parentElement.dataset.error = ""
   document.getElementById("last").parentElement.dataset.errorVisible = "false"
-  validateAll  = true
+  lastNameIsValid  = true
 } else { 
 lastName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du nom "
 lastName.parentElement.dataset.errorVisible = true
-  validateAll  = false
+lastNameIsValid  = false
 }
 
 // adresse mail
@@ -152,15 +154,20 @@ termes.parentElement.dataset.errorVisible = true
 validateAll = false
 }
 
+if (firstNameIsValid && lastNameIsValid) {
+  toggleModal()
+}
+
 // Fonction merci avec déclenchement de la modal */
-const modalContainer = document.querySelector(".modal-container");
+// const modalContainer = document.querySelector(".modal-container");
 const modalTriggers = document.querySelectorAll(".modal-trigger");
 
 modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
 
 function toggleModal(){
-
+  const modalContainer = document.querySelector(".modal-container");
 /*rajoute la class active s'il n'y est pas*/   
 modalContainer.classList.toggle("active")
+}
 }
 ;
