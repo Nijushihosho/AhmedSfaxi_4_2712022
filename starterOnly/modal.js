@@ -53,6 +53,12 @@ function check(e) {
   e.preventDefault();
 	//pour chaque champ du formulaire, vérifie les contraintes
 	let validateAll = true
+  let firstNameIsValid = false
+  let LastNameIsValid = false
+  let emailIsValid = false
+  let bDateIsValid = false
+  let numberIsValid = false
+  let termesIsValid = false
 
   // champ nom 
 	if (firstName.value.match(/^[a-z]{2,}$/)) {
