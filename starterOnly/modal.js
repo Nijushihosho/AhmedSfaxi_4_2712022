@@ -163,4 +163,5 @@ function toggleModal(){
 /*rajoute la class active s'il n'y est pas*/   
 modalContainer.classList.toggle("active")
 }
+}
 ;

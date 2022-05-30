@@ -3,13 +3,14 @@
 	"open-in-browser.default": "chrome",
 	"cSpell.enableFiletypes": ["!asciidoc", "!c", "!cpp", "!go"],
 	"debug.javascript.autoAttachFilter": "smart",
-	"liveServer.settings.port": 7022,
+	"liveServer.settings.port": 5555,
 	"sync.autoDownload": true,
 	"sync.autoUpload": true,
 	"sync.gist": "nijushihosho",
-	"liveServer.settings.useWebExt": false,
 	"liveServer.settings.CustomBrowser": "chrome",
 	"debug.javascript.breakOnConditionalError": true,
 	"liveServer.settings.showOnStatusbar": false,
-	"livePreview.tasks.runTaskWithExternalPreview": false
+	"livePreview.tasks.runTaskWithExternalPreview": true,
+	"liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+	"liveServer.settings.ChromeDebuggingAttachment": true,
 }
