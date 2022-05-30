@@ -54,11 +54,12 @@ function check(e) {
 	//pour chaque champ du formulaire, vérifie les contraintes
 	let validateAll = true
   let firstNameIsValid = false
-  let LastNameIsValid = false
-  let emailIsValid = false
+  let lastNameIsValid = false
+  let mailIsValid = false
   let bDateIsValid = false
   let numberIsValid = false
   let termesIsValid = false
+  let radioIsValid = false
 
   // champ nom 
 	if (firstName.value.match(/^[a-z]{2,}$/)) {
@@ -163,6 +164,10 @@ const modalContainer = document.querySelector(".modal-container");
 const modalTriggers = document.querySelectorAll(".modal-trigger");
 
 modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
+
+if (firstNameIsValid && lastNameIsValid && mailIsValid && bDateIsValid && numberIsValid && radioIsValid && termesIsValid) {
+  toggleModal();
+}
 
 function toggleModal(){
 
