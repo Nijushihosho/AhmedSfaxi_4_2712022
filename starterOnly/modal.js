@@ -111,7 +111,8 @@ bDate.parentElement.dataset.errorVisible = true
 }
 
 // Participation à des tournois  
-if (number.value.match(/^[0-99]$/)){ 
+
+  if (number.value.match('^[0-9][0-9]?$|^100$')){ 
   document.getElementById("quantity").parentElement.dataset.error = ""
   document.getElementById("quantity").parentElement.dataset.errorVisible = false
   numberIsValid  = true
@@ -163,16 +164,26 @@ termesIsValid = false
 const modalContainer = document.querySelector(".modal-container");
 const modalTriggers = document.querySelectorAll(".modal-trigger");
 
-modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
+modalTriggers.forEach(trigger => trigger.addEventListener("submit", toggleModal))
 
-if (firstNameIsValid && lastNameIsValid && mailIsValid && bDateIsValid && numberIsValid && radioIsValid && termesIsValid) {
+validateAll = firstNameIsValid && lastNameIsValid && mailIsValid && bDateIsValid && numberIsValid && radioIsValid && termesIsValid;
+
+if (validateAll) {
   toggleModal();
 }
 
 function toggleModal(){
-
+const message = document.querySelector(".success");
 /*rajoute la class active s'il n'y est pas*/   
-modalContainer.classList.toggle("active")
+message.classList.add("active");
+
+// cacher le formulaire
+
+}
+
+// Close modal form
+function closeModal() {
+	modalbg.style.display = "none"
 }
 }
 ;
