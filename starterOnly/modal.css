@@ -68,7 +68,7 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 320px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -492,7 +492,7 @@ input[data-error]::after {
   display: none;
   position:fixed;
   top: 0;
-  width: 100vw;
+  width: 80vw;
   height: 100vh;
 }
 
@@ -597,4 +597,13 @@ footer {
     opacity: 1;
   }
 }
+
+.success {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
 

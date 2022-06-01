@@ -53,8 +53,13 @@ function check(e) {
   e.preventDefault();
 	//pour chaque champ du formulaire, vérifie les contraintes
 	let validateAll = true
-  let firstNameIsValid = false;
-  let lastNameIsValid = false;
+  let firstNameIsValid = false
+  let lastNameIsValid = false
+  let mailIsValid = false
+  let bDateIsValid = false
+  let numberIsValid = false
+  let termesIsValid = false
+  let radioIsValid = false
 
   // champ nom 
 	if (firstName.value.match(/^[a-z]{2,}$/)) {
@@ -64,18 +69,18 @@ function check(e) {
 	} else { 
   firstName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du prénom "
   firstName.parentElement.dataset.errorVisible = true
-  firstNameIsValid  = false
+		validateAll  = false
 	}
 
   // champ prénom 
 if (lastName.value.match(/^[a-z]{2,}$/)) {
   document.getElementById("last").parentElement.dataset.error = ""
   document.getElementById("last").parentElement.dataset.errorVisible = "false"
-  lastNameIsValid  = true
+  validateAll  = true
 } else { 
 lastName.parentElement.dataset.error = "Veuillez entrer 2 caractères ou plus pour le champ du nom "
 lastName.parentElement.dataset.errorVisible = true
-lastNameIsValid  = false
+  validateAll  = false
 }
 
 // adresse mail
@@ -83,12 +88,12 @@ if (mail.value.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+")
   console.log(email.value); 
   document.getElementById("email").parentElement.dataset.error = ""
   document.getElementById("email").parentElement.dataset.errorVisible = false
-  validateAll  = true
+  mailIsValid = true
 } else { 
   console.log("else ",email.value);
 mail.parentElement.dataset.error = "Veuillez entrer une adresse mail conforme"
 mail.parentElement.dataset.errorVisible = true
-  validateAll  = false
+  mailIsValid  = false
 }
 
 // Date de naissance 
@@ -97,23 +102,24 @@ if (bDate.value.length > 0) {
   console.log("valid",bDate.value);
   document.getElementById("birthdate").parentElement.dataset.error = ""
   document.getElementById("birthdate").parentElement.dataset.errorVisible = false
-  validateAll  = true
+  bDateIsValid  = true
 } else { 
   console.log("invalid ",bDate.value);
 bDate.parentElement.dataset.error = "Veuillez entrer votre date de naissance"
 bDate.parentElement.dataset.errorVisible = true
-  validateAll  = false
+  bDateIsValid  = false
 }
 
 // Participation à des tournois  
-if (number.value.match(/^[0-99]$/)){ 
+
+  if (number.value.match('^[0-9][0-9]?$|^100$')){ 
   document.getElementById("quantity").parentElement.dataset.error = ""
   document.getElementById("quantity").parentElement.dataset.errorVisible = false
-  validateAll  = true
+  numberIsValid  = true
 } else { 
 number.parentElement.dataset.error = "Veuillez entrer un chiffre entre 0 et 99"
 number.parentElement.dataset.errorVisible = true
-  validateAll  = false
+  numberIsValid  = false
 }
 
 // Choix des options villes
@@ -133,12 +139,12 @@ if (isValid) {
   // console.log("🚀 ~ file: modal.js ~ line 119 ~ check ~ radio", radio)
   radioList[0].parentElement.dataset.error = ""
   radioList[0].parentElement.dataset.errorVisible = false
-  validateAll = true
+  radioIsValid = true
 } else {
   radioList[0].parentElement.dataset.error = "Veuillez cocher une option"
   // console.log("🚀 ~ file: modal.js ~ line 127 ~ check ~ radio", radio)
   radioList[0].parentElement.dataset.errorVisible = true
-  validateAll = false
+  radioIsValid = false
 }
 
 // termes et conditions 
@@ -147,11 +153,11 @@ if (isValid) {
 if (document.getElementById("checkbox1").checked) {
   document.getElementById("checkbox1").parentElement.dataset.error = ""
   document.getElementById("checkbox1").parentElement.dataset.errorVisible = false
-      validateAll = true
+      termesIsValid = true
 } else {
 termes.parentElement.dataset.error = "Vous devez vérifier que vous acceptez les termes et conditions"
 termes.parentElement.dataset.errorVisible = true
-validateAll = false
+termesIsValid = false
 }
 
 if (firstNameIsValid && lastNameIsValid) {
@@ -162,12 +168,17 @@ if (firstNameIsValid && lastNameIsValid) {
 // const modalContainer = document.querySelector(".modal-container");
 const modalTriggers = document.querySelectorAll(".modal-trigger");
 
-modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
+modalTriggers.forEach(trigger => trigger.addEventListener("submit", toggleModal))
+
+validateAll = firstNameIsValid && lastNameIsValid && mailIsValid && bDateIsValid && numberIsValid && radioIsValid && termesIsValid;
+
+if (validateAll) {
+  toggleModal();
+}
 
 function toggleModal(){
-  const modalContainer = document.querySelector(".modal-container");
+
 /*rajoute la class active s'il n'y est pas*/   
 modalContainer.classList.toggle("active")
-}
 }
 ;
