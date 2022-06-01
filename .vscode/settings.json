@@ -13,4 +13,5 @@
 	"livePreview.tasks.runTaskWithExternalPreview": true,
 	"liveServer.settings.AdvanceCustomBrowserCmdLine": "",
 	"liveServer.settings.ChromeDebuggingAttachment": true,
+	"liveshare.accessibility.voiceEnabled": false,
 }

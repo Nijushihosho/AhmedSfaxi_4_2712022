@@ -53,13 +53,13 @@ function check(e) {
   e.preventDefault();
 	//pour chaque champ du formulaire, vérifie les contraintes
 	let validateAll = true
-  let firstNameIsValid = false
-  let lastNameIsValid = false
-  let mailIsValid = false
-  let bDateIsValid = false
-  let numberIsValid = false
-  let termesIsValid = false
-  let radioIsValid = false
+  let firstNameIsValid = true
+  let lastNameIsValid = true
+  let mailIsValid = true
+  let bDateIsValid = true
+  let numberIsValid = true
+  let termesIsValid = true
+  let radioIsValid = true
 
   // champ nom 
 	if (firstName.value.match(/^[a-z]{2,}$/)) {
@@ -160,12 +160,8 @@ termes.parentElement.dataset.errorVisible = true
 termesIsValid = false
 }
 
-if (firstNameIsValid && lastNameIsValid) {
-  toggleModal()
-}
-
 // Fonction merci avec déclenchement de la modal */
-// const modalContainer = document.querySelector(".modal-container");
+//const modalContainer = document.querySelector(".modal-container");
 const modalTriggers = document.querySelectorAll(".modal-trigger");
 
 modalTriggers.forEach(trigger => trigger.addEventListener("submit", toggleModal))
@@ -178,7 +174,11 @@ if (validateAll) {
 
 function toggleModal(){
 
-/*rajoute la class active s'il n'y est pas*/   
+/*rajoute la class active s'il n'y est pas*/  
+
+
 modalContainer.classList.toggle("active")
+modalContainer.classList.toggle("success")
+}
 }
 ;
