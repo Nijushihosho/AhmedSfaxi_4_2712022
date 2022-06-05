@@ -164,21 +164,19 @@ termesIsValid = false
 //const modalContainer = document.querySelector(".modal-container");
 const modalTriggers = document.querySelectorAll(".modal-trigger");
 
-modalTriggers.forEach(trigger => trigger.addEventListener("submit", toggleModal))
-
+modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
 validateAll = firstNameIsValid && lastNameIsValid && mailIsValid && bDateIsValid && numberIsValid && radioIsValid && termesIsValid;
 
 if (validateAll) {
-  toggleModal();
+  toggleModal("success");
+  //toggleModal("active");
 }
 
 function toggleModal(){
 
 /*rajoute la class active s'il n'y est pas*/  
-
-
+modalTriggers.classList.toggle("success")
 modalContainer.classList.toggle("active")
-modalContainer.classList.toggle("success")
 }
 }
 ;

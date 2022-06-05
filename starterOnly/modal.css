@@ -598,11 +598,11 @@ footer {
   }
 }
 
-.success {
+.active {
   display: none;
 }
 
-.active {
+.success {
   display: block;
 }
 
