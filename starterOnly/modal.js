@@ -47,7 +47,7 @@ const radioList = document.querySelectorAll("input[name='location']");
 
 // Fonction check déclenchée au click du bouton submit
 const envoi = document.querySelector(".btn-submit")
-document.forms[0].addEventListener("submit", check);
+document.forms[0].addEventListener(".submit", check);
 
 function check(e) {
   e.preventDefault();
@@ -169,7 +169,7 @@ validateAll = firstNameIsValid && lastNameIsValid && mailIsValid && bDateIsValid
 
 if (validateAll) {
   toggleModal("success");
-  //toggleModal("active");
+  toggleModal("active");
 }
 
 function toggleModal(){
