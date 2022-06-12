@@ -46,8 +46,8 @@ const termes = document.getElementById("checkbox1");
 const radioList = document.querySelectorAll("input[name='location']");
 
 // Fonction check déclenchée au click du bouton submit
-const envoi = document.querySelector(".btn-submit")
-document.forms[0].addEventListener(".submit", check);
+const envoi = document.querySelector("btn-submit")
+document.forms[0].addEventListener("submit", check);
 
 function check(e) {
   e.preventDefault();
@@ -161,10 +161,10 @@ termesIsValid = false
 }
 
 // Fonction merci avec déclenchement de la modal */
-//const modalContainer = document.querySelector(".modal-container");
-const modalTriggers = document.querySelectorAll(".modal-trigger");
+const modalContainer = document.querySelector("modal-container");
+const modalTriggers = document.querySelectorAll("modal-trigger");
 
-modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
+modalTriggers.forEach(trigger => trigger.addEventListener("submit", toggleModal))
 validateAll = firstNameIsValid && lastNameIsValid && mailIsValid && bDateIsValid && numberIsValid && radioIsValid && termesIsValid;
 
 if (validateAll) {
