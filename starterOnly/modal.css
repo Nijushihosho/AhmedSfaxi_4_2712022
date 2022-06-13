@@ -599,6 +599,10 @@ footer {
 }
 
 .active {
+  display: block;
+}
+
+.disable {
   display: none;
 }
 

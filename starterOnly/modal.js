@@ -184,11 +184,18 @@ function check(e) {
 		bDateIsValid &&
 		numberIsValid &&
 		radioIsValid &&
-		termesIsValid
+		termesIsValid 
 
 	if (validateAll) {
-		toggleModal("active")
-		toggleModal("success")
+		console.log(document.querySelector("#subscribe"))
+		document.querySelector("#subscribe").classList.remove("active")
+		document.querySelector("#subscribe").classList.add("disable")
+
+		document.querySelector("#message").classList.remove("disable")
+		document.querySelector("#message").classList.add("active")
+
+		// toggleModal("active")
+		// toggleModal("success")
 	}
 
 	function toggleModal() {
