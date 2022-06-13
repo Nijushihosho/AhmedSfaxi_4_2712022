@@ -1,3 +1,4 @@
+
 function editNav() {
 	let x = document.getElementById("myTopnav")
 	// on teste à la fois si le type et le même et si le contenu est le même
@@ -46,7 +47,7 @@ const termes = document.getElementById("checkbox1");
 const radioList = document.querySelectorAll("input[name='location']");
 
 // Fonction check déclenchée au click du bouton submit
-const envoi = document.querySelector("btn-submit")
+const envoi = document.querySelector(".btn-submit")
 document.forms[0].addEventListener("submit", check);
 
 function check(e) {
@@ -174,7 +175,7 @@ if (validateAll) {
 
 function toggleModal(){
 
-/*rajoute la class active s'il n'y est pas*/  
+/*rajoute la class active et success s'il n'y est pas*/  
 modalTriggers.classList.toggle("success")
 modalContainer.classList.toggle("active")
 }
