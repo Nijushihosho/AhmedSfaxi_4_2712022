@@ -9,9 +9,11 @@
 	"sync.gist": "nijushihosho",
 	"liveServer.settings.CustomBrowser": "chrome",
 	"debug.javascript.breakOnConditionalError": true,
-	"liveServer.settings.showOnStatusbar": false,
-	"livePreview.tasks.runTaskWithExternalPreview": true,
+	"livePreview.tasks.runTaskWithExternalPreview": false,
 	"liveServer.settings.ChromeDebuggingAttachment": true,
 	"liveServer.settings.useBrowserPreview": false,
 	"liveshare.openSharedServers": false,
+	"liveServer.settings.showOnStatusbar": false,
+	"livePreview.showStatusBarItem": false,
+	"livePreview.tasks.browserPreviewLaunchServerLogging": false,
 }

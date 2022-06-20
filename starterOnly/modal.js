@@ -194,13 +194,9 @@ function check(e) {
 		document.querySelector("#message").classList.remove("disable")
 		document.querySelector("#message").classList.add("active")
 
-		// toggleModal("active")
-		// toggleModal("success")
+		document.querySelector(".bground").style.display("block")
+		
 	}
-
-	function toggleModal() {
-		/*rajoute la class active et success s'il n'y est pas*/
-		modalContainer.classList.toggle("active")
-		modalTriggers.classList.toggle("success")
+	
 	}
-}
+	
