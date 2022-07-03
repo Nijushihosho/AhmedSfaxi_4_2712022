@@ -194,21 +194,6 @@ function check(e) {
 		document.querySelector("#message").classList.remove("disable")
 		document.querySelector("#message").classList.add("active")
 
-		
-		
-		if(isFormValid()) {
-			closeFormModal();
-			displayValidationModal();
-		}
-		
-		//reset formulaire
-		document.querySelector('#reserve').reset();
-//function reset form
-for (btn of modalBtn) {
-    btn.addEventListener('click', launchFormModal);
+			
 }
-formModalCloseBtn.addEventListener('click', closeFormModal);
-formElt.addEventListener('submit', manageValidation);
-for (btn of validationModalCloseBtn) {
-    btn.addEventListener('click', closeValidationModal);
 }
