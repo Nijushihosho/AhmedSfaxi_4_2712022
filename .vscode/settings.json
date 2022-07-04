@@ -16,4 +16,5 @@
 	"liveServer.settings.showOnStatusbar": false,
 	"livePreview.showStatusBarItem": false,
 	"livePreview.tasks.browserPreviewLaunchServerLogging": false,
+	"hediet.vscode-drawio.codeLinkActivated": true,
 }

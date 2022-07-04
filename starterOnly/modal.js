@@ -184,7 +184,7 @@ function check(e) {
 		bDateIsValid &&
 		numberIsValid &&
 		radioIsValid &&
-		termesIsValid 
+		termesIsValid
 
 	if (validateAll) {
 		console.log(document.querySelector("#subscribe"))
@@ -193,7 +193,22 @@ function check(e) {
 
 		document.querySelector("#message").classList.remove("disable")
 		document.querySelector("#message").classList.add("active")
+	}
+}
 
-			
-}
-}
+const myBtn = document.querySelector("#message .btn-submit")
+myBtn.addEventListener("click", function (e) {
+	e.preventDefault()
+	//cacher le message et afficher le formulaire
+	document.querySelector("#message").classList.remove("active")
+	document.querySelector("#message").classList.add("disable")
+
+	document.querySelector("#subscribe").classList.remove("disable")
+	document.querySelector("#subscribe").classList.add("active")
+
+	//reset le formulaire
+	document.forms[0].reset()
+
+	//fermer la modale
+	closeModal()
+})
