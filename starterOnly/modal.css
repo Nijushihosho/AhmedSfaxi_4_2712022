@@ -170,6 +170,7 @@ main {
 }
 
 .content {
+  top: 79px;
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
