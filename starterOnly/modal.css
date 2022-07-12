@@ -27,6 +27,7 @@ p {
 }
 
 img {
+  object-fit: cover;
   padding-right: 1rem;
 }
 
