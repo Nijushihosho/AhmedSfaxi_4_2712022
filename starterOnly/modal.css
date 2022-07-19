@@ -22,7 +22,12 @@ body {
 }
 
 p {
-  margin-bottom: 0;
+  margin-bottom: 0px;
+  padding: 0.5vw;
+}
+
+p#message.active {
+  margin-top: 200px;
   padding: 0.5vw;
 }
 
@@ -91,8 +96,6 @@ img {
   }
 }
 
-
-
  @media screen and (max-width: 1130px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -148,6 +151,7 @@ main {
   border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
+
 }
 
 .button:hover {
@@ -159,7 +163,7 @@ main {
 }
 
 .bground {
-  z-index: 159;;
+  z-index: 159;
   display: none;
   position: fixed;
   left: 0;
@@ -188,6 +192,7 @@ main {
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+  min-height: 75vh;
 }
 
 label {
@@ -201,6 +206,7 @@ input {
   padding: 8px;
   border: 0.8px solid #ccc;
   outline: none;
+  margin: 0 auto;
 }
 .text-control {
   margin: 0;
@@ -327,13 +333,13 @@ input[data-error]::after {
 .btn-signup {
   background: #fe142f;
   display: block;
-  margin: 0 auto;
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
   color: #fff;
   cursor: pointer;
   border: 0;
+
 }
 /* custom select styles */
 .custom-select {
