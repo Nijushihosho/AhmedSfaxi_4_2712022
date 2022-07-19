@@ -28,7 +28,7 @@ p {
 
 img {
   object-fit: cover;
-  padding-right: 1rem;
+  padding: 1rem;
 }
 
 .topnav {
@@ -37,9 +37,11 @@ img {
 }
 .header-logo {
     float: left;
+    z-index: -1;
 }
 .main-navbar {
     float: right;
+    z-index: 2; 
 }
 .topnav a {
   float: left;
@@ -82,7 +84,7 @@ img {
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 10;
   }
   .topnav.responsive a {
     float: none;
@@ -159,9 +161,9 @@ main {
 }
 
 .bground {
+  z-index: 1;
   display: none;
   position: fixed;
-  z-index: 1;
   left: 0;
   top: 0;
   height: 100%;
@@ -386,7 +388,7 @@ input[data-error]::after {
 .select-items {
   position: absolute;
   background-color: #fff;
-  top: 89%;
+  top: 99;
   left: 0;
   right: 0;
   z-index: 99;
