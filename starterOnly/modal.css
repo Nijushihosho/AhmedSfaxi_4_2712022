@@ -74,16 +74,18 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 414px) {
-  .topnav a {display: none;}
+@media screen and (max-width: 1200px) {
+  .topnav a {display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+@media screen and (max-width: 1200px) {
+  .topnav.responsive {position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -96,7 +98,7 @@ img {
   }
 }
 
- @media screen and (max-width: 1130px) {
+ @media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
