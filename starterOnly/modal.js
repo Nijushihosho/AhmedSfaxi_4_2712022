@@ -18,7 +18,6 @@ const btnClose = document.querySelector("span.close")
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal))
 btnClose.addEventListener("click", closeModal)
 btnClose.addEventListener("click", (e) => {
-	console.log(e)
 })
 
 // launch modal form
@@ -89,7 +88,6 @@ function check(e) {
 			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 		)
 	) {
-		console.log(email.value)
 		document.getElementById("email").parentElement.dataset.error = ""
 		document.getElementById("email").parentElement.dataset.errorVisible = false
 		mailIsValid = true
@@ -104,14 +102,12 @@ function check(e) {
 	// Date de naissance
 
 	if (bDate.value.length > 0) {
-		console.log("valid", bDate.value)
 		document.getElementById("birthdate").parentElement.dataset.error = ""
 		document.getElementById(
 			"birthdate"
 		).parentElement.dataset.errorVisible = false
 		bDateIsValid = true
 	} else {
-		console.log("invalid ", bDate.value)
 		bDate.parentElement.dataset.error =
 			"Veuillez entrer votre date de naissance"
 		bDate.parentElement.dataset.errorVisible = true
