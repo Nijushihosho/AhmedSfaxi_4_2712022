@@ -28,7 +28,12 @@ p {
 
 p#message.active {
   margin-top: 200px;
+  display: flex;
   padding: 0.5vw;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  gap: 130px;
 }
 
 img {
